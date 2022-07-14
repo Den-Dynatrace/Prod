@@ -42,18 +42,22 @@ function tagQuery(tag, language){
   });
 }
 
-function numeberQuery(query){ 
+ async function numberQuery(query){ 
 //SIMPLE QUERY//
- client.connect(err => {
+ len = client.connect(err  =>{
     if (err) throw err;
     var emps = client.db("SME_Tracker");
     
-    emps.collection("Erik.Sundblad").find(query).toArray(function(err, result) {
+    var len =  emps.collection("Erik.Sundblad").find(query).toArray(function(err, result) {
       if (err) throw err;
       console.log(result.length);
       return(result.length)
+      
     });
+    return(len) 
   }); 
+  return(len)  
 }
 
 
+module.exports = numberQuery
