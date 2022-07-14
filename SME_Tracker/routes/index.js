@@ -3,11 +3,9 @@ var router = express.Router();
 var databaseVals = require("../db_queries")
 
 
-var val = await databaseVals({})
-console.log(val)
-
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', async function(req, res, next) {
+  val = await databaseVals({})
   res.render('index', { title: val });
 });
 

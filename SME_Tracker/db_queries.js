@@ -1,7 +1,8 @@
 require("dotenv").config();
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://admin:"+process.env.DBPASS+"@cluster0.hqxio3m.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+const uri = "mongodb://sme-database:ulb91PoDqNRdCLBvnBjcjQQPBzeOabzijeeOyBsIkryMeBD8VPmbMvO9FxzxQzsxxRD61RJdG4HmGmN0AvlpAg==@sme-database.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@sme-database@";
+const client = new MongoClient(uri);
+
 
 function insertOne(user, document){
     //INSERT ONE//
@@ -42,22 +43,22 @@ function tagQuery(tag, language){
   });
 }
 
- async function numberQuery(query){ 
+async function numberQuery(query){ 
 //SIMPLE QUERY//
- len = client.connect(err  =>{
-    if (err) throw err;
-    var emps = client.db("SME_Tracker");
-    
-    var len =  emps.collection("Erik.Sundblad").find(query).toArray(function(err, result) {
-      if (err) throw err;
-      console.log(result.length);
-      return(result.length)
-      
-    });
-    return(len) 
-  }); 
-  return(len)  
+return new Promise(function(resolve, reject) {
+  const connect = client.db("SME_Tracker")
+  connect.collection("Erik.Sundblad").find(query).toArray( async function(err, docs) {
+   if (err) {
+     // Reject the Promise with an error
+     return reject(err)
+   }
+   console.log(docs.length)
+   // Resolve (or fulfill) the promise with data
+   return await resolve(docs.length)
+ })
+})
 }
+
 
 
 module.exports = numberQuery
