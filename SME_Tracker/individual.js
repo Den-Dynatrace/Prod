@@ -1,45 +1,45 @@
 queries = [
-    {"Overall": "Content and Lab Dev",
-    "Sub-Cat": "Develop and continously improve coaching session, webinar, and Dynatrace Unicersity content",
+    {"Overall": "Content and lab development",
+    "Sub-Cat": "Develop and continuously improve coaching session, webinar, and Dynatrace University content",
     "metric": "# of sessions" },
 
-    {"Overall": "Content and Lab Dev",
-    "Sub-Cat": "Develop and continously improve coaching session, webinar, and Dynatrace Unicersity content" ,
+    {"Overall": "Content and lab development",
+    "Sub-Cat": "Develop and continuously improve coaching session, webinar, and Dynatrace University content" ,
     "metric": "# of videos"},
 
-    {"Overall": "Content and Lab Dev",
-    "Sub-Cat": "Develop and continously improve coaching session, webinar, and Dynatrace Unicersity content" ,
+    {"Overall": "Content and lab development",
+    "Sub-Cat": "Develop and continuously improve coaching session, webinar, and Dynatrace University content" ,
     "metric": "# of University Content" },
 
-    {"Overall": "Content and Lab Dev",
+    {"Overall": "Content and lab development",
     "Sub-Cat": "Deliver Internal Technical Product Specialist training" ,
     "metric": "# of training delivered"},
 
-    {"Overall": "Content and Lab Dev",
+    {"Overall": "Content and lab development",
     "Sub-Cat": "Deliver Internal Technical Product Specialist training" ,
     "metric": "%CSAT Score" },
 
-    {"Overall": "Content and Lab Dev",
+    {"Overall": "Content and lab development",
     "Sub-Cat": "Partner with other teams to develop Dynatrace best practices" ,
     "metric": "# of meetings participated in"},
 
-    {"Overall": "Content and Lab Dev",
+    {"Overall": "Content and lab development",
     "Sub-Cat": "Partner with other teams to develop Dynatrace best practices" ,
     "metric": "# of best practice guides"},
 
-    {"Overall": "Content and Lab Dev",
+    {"Overall": "Content and lab development",
     "Sub-Cat": "Partner with other teams to develop Dynatrace best practices" ,
     "metric": "# of topics developed"},
 
-    {"Overall": "Content and Lab Dev",
+    {"Overall": "Content and lab development",
     "Sub-Cat": "Assist in building lab enviroments" ,
     "metric": "# of lab enviroments developed"},
 
-    {"Overall": "Content and Lab Dev",
+    {"Overall": "Content and lab development",
     "Sub-Cat": "Assist in building lab enviroments" ,
     "metric": "# of others using labs"},
 
-    {"Overall": "Content and Lab Dev",
+    {"Overall": "Content and lab development",
     "Sub-Cat": "Assist in building lab enviroments" ,
     "metric": "# of others participating in lab development"},
 

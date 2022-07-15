@@ -1,21 +1,25 @@
 const { json } = require('express');
 var express = require('express');
 var router = express.Router();
-var databaseVals = require("../db_queries")
+const {numberQuery, empID, inject} = require('../db_queries.js')
 var user = "Erik.Sundblad"
 var queries = require('../individual.js')
 results =[]
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
+  id = await empID(user)
   for (let query in queries) {
     console.log(queries[query])
-    val = await databaseVals(queries[query])
+    val = await numberQuery(queries[query])
     console.log(val)
     results.push(val)
   }
-  res.render('index', { a1: results[0],
-                        a2: results[1],
+  res.render('index', { i1: id[0]._id,
+                        i2: id[0].Department,
+                        i3: id[0].Position,
+                        i4: id[0].Languages,
+                        a2: results[0],
                         a3: results[2],
                         a4: results[3],
                         a5: results[4],
@@ -26,5 +30,18 @@ router.get('/', async function(req, res, next) {
                         a10: results[9],
                       });    
 });
+
+router.post('/', function (req, res) {
+  doc = {
+  "Overall" : req.body.Overall,
+  "Sub-Cat" : req.body.SubCat,
+  "metric" : req.body.metric,
+  "value" : req.body.value,
+  "Proof" : req.body.Proof,
+  "Notes" : req.body.notes,
+  "Tag" : req.body.Tag
+  }
+  inject(user, doc)
+})
 
 module.exports = router;

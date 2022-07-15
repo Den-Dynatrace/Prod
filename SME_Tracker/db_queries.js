@@ -4,12 +4,12 @@ const uri = "mongodb://sme-database:ulb91PoDqNRdCLBvnBjcjQQPBzeOabzijeeOyBsIkryM
 const client = new MongoClient(uri);
 
 
-function insertOne(user, document){
+function inject(user, doc){
     //INSERT ONE//
     client.connect(err => {
         const collection = client.db("SME_Tracker").collection(user);
         if (err) throw err;
-        collection.insertOne(first_docs, function(err, res){
+        collection.insertOne(doc, function(err, res){
             if (err) throw err;
             console.log("Inserted Docs");
         });
@@ -59,6 +59,20 @@ return new Promise(function(resolve, reject) {
 })
 }
 
+async function empID(user){
+  return new Promise(function(resolve, reject) {
+    const connect = client.db("SME_Tracker")
+    connect.collection(user).find({"id_card": "ID Card"}).toArray( async function(err, docs){
+      if (err){
+        return reject(err)
+      }
+      console.log(docs)
+      return await resolve(docs)
+    })
+  })
+}
 
 
-module.exports = numberQuery
+exports.numberQuery = numberQuery
+exports.empID = empID
+exports.inject = inject
