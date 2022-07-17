@@ -1,7 +1,7 @@
 const { json } = require('express');
 var express = require('express');
 var router = express.Router();
-const {numberQuery, empID, inject} = require('../db_queries.js')
+const {numberQuery, empID} = require('../db_queries.js')
 var user = "Erik.Sundblad"
 var queries = require('../individual.js')
 results =[]
@@ -31,17 +31,6 @@ router.get('/', async function(req, res, next) {
                       });    
 });
 
-router.post('/', function (req, res) {
-  doc = {
-  "Overall" : req.body.Overall,
-  "Sub-Cat" : req.body.SubCat,
-  "metric" : req.body.metric,
-  "value" : req.body.value,
-  "Proof" : req.body.Proof,
-  "Notes" : req.body.notes,
-  "Tag" : req.body.Tag
-  }
-  inject(user, doc)
-})
+
 
 module.exports = router;
