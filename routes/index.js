@@ -11,7 +11,7 @@ router.get('/', async function(req, res, next) {
   id = await empID(user)
   for (let query in queries) {
     console.log(queries[query])
-    val = await numberQuery(queries[query])
+    val = await numberQuery(queries[query], user)
     console.log(val)
     results.push(val)
   }
