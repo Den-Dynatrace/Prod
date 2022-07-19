@@ -1,29 +1,46 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>SME Tracker Add Document</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-
-  <form action="/injectDoc" method="POST">
-    <label for="Cat/SubCat">Choose Catagory and subcatagory:</label>
-    <select name="Cat/SubCat" id="Cat/SubCat">
-      <optgroup label="Content and lab development">
-        <option value="Develop and continuously improve coaching session, webinar, and Dynatrace University content">Develop and continuously improve coaching session, webinar, and Dynatrace University content</option>
-        <option value="Deliver internal Technical Product Specialist training">Deliver internal Technical Product Specialist training</option>
-        <option value="Partner with other teams to develop Dynatrace best practices">Partner with other teams to develop Dynatrace best practices</option>
-        <option value="Assist in building lab environments">Assist in building lab environments</option>
-      </optgroup>
-      <optgroup label="Product feedback (product, self-help, internal processes)">
-        <option value="Analyze chats/tickets">Analyze chats/tickets</option>
-        <option value="Develop content to help deflect chats">Develop content to help deflect chats</option>
-        <option value="Work with Product Management/R&D to improve product self-service">Work with Product Management/R&D to improve product self-service</option>
-      </optgroup>
-      <optgroup label="D1 representative/evangelist (internal and external)">
-        <option value="Participate in cross-functional SWAT, Value Creation, etc. teams">Participate in cross-functional SWAT, Value Creation, etc. teams</option>
-        <option value="Author internal, corporate, and 3rdparty blog articles">Author internal, corporate, and 3rdparty blog articles</option>
-        <option value="Develop and present at internal, corporate, and 3rdparty technical conferences">Develop and present at internal, corporate, and 3rdparty technical conferences</option>
-        <option value="Develop and present at internal, corporate, and 3rdparty technical conferences">Develop and present at internal, corporate, and 3rdparty technical conferences</option>  
-      </optgroup>
-    </select>
-    
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script language="javascript" type="text/javascript">
+    function dynamicdropdown(listindex)
+    {
+        switch (listindex)
+        {
+        case "manual" :
+            document.getElementById("status").options[0]=new Option("Select status","");
+            document.getElementById("status").options[1]=new Option("OPEN","open");
+            document.getElementById("status").options[2]=new Option("DELIVERED","delivered");
+            break;
+        case "online" :
+            document.getElementById("status").options[0]=new Option("Select status","");
+            document.getElementById("status").options[1]=new Option("OPEN","open");
+            document.getElementById("status").options[2]=new Option("DELIVERED","delivered");
+            document.getElementById("status").options[3]=new Option("SHIPPED","shipped");
+            break;
+        }
+        return true;
+    }
+    </script>
+    </head>
+    <title>Dynamic Drop Down List</title>
+    <body>
+    <div class="category_div" id="category_div">Source:
+        <select id="source" name="source" onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+        <option value="">Select source</option>
+        <option value="manual">MANUAL</option>
+        <option value="online">ONLINE</option>
+        </select>
+    </div>
+    <div class="sub_category_div" id="sub_category_div">Status:
+        <script type="text/javascript" language="JavaScript">
+        document.write('<select name="status" id="status"><option value="">Select status</option></select>')
+        </script>
+        <noscript>
+        <select id="status" name="status">
+            <option value="open">OPEN</option>
+            <option value="delivered">DELIVERED</option>
+        </select>
+        </noscript>
+    </div>
+    </body>
+</html>
