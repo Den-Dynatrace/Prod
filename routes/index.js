@@ -2,7 +2,7 @@ const { json } = require('express');
 var express = require('express');
 var router = express.Router();
 const {numberQuery, empID} = require('../db_queries.js')
-var user = "Erik.Sundblad"
+var user = "erik.sundblad"
 var queries = require('../individual.js')
 results =[]
 

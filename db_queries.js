@@ -1,8 +1,7 @@
 require("dotenv").config();
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb://sme-database:ulb91PoDqNRdCLBvnBjcjQQPBzeOabzijeeOyBsIkryMeBD8VPmbMvO9FxzxQzsxxRD61RJdG4HmGmN0AvlpAg==@sme-database.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@sme-database@";
+const uri = "mongodb://smetracker:oaAV5HdOIySTWqsDKnSMg7HeJ4mVCmLxu4JeKeIDHLeDriEiKaXRXp9hCdbu741mJlL6HLIi1HwYlYntcxPqeg%3D%3D@smetracker.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@smetracker@";
 const client = new MongoClient(uri);
-
 
 function inject(user, doc){
     //INSERT ONE//
@@ -43,11 +42,11 @@ function tagQuery(tag, language){
   });
 }
 
-async function numberQuery(query){ 
+async function numberQuery(query, user){ 
 //SIMPLE QUERY//
 return new Promise(function(resolve, reject) {
   const connect = client.db("SME_Tracker")
-  connect.collection("Erik.Sundblad").find(query).toArray( async function(err, docs) {
+  connect.collection(user).find(query).toArray( async function(err, docs) {
    if (err) {
      // Reject the Promise with an error
      return reject(err)
@@ -72,6 +71,16 @@ async function empID(user){
   })
 }
 
+function dropCollection(user){
+  client.connect(err => {
+    const collection = client.db("SME_Tracker").collection(user)
+    if (err) throw err;
+    collection.drop(function(err, res){
+      if (err) throw err;
+      console.log("Collection Droped")
+    })
+  })
+}
 
 exports.numberQuery = numberQuery
 exports.empID = empID
