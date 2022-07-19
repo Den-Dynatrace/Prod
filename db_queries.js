@@ -1,4 +1,3 @@
-require("dotenv").config();
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = "mongodb://smetracker:oaAV5HdOIySTWqsDKnSMg7HeJ4mVCmLxu4JeKeIDHLeDriEiKaXRXp9hCdbu741mJlL6HLIi1HwYlYntcxPqeg%3D%3D@smetracker.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@smetracker@";
 const client = new MongoClient(uri);
@@ -12,7 +11,6 @@ function inject(user, doc){
             if (err) throw err;
             console.log("Inserted Docs");
         });
-        
     });
 }
 
