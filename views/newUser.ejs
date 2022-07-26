@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <h1>Adding New User</h1>
+        <script>
+            window.onload = function() {
+                        var raw = "<%= mgmtList%>";
+                        let empList = raw.split(",");
+                        var empSelect = document.getElementById("managers")
+                        for(var x in empList){
+                            empSelect.options[empSelect.options.length] = new Option(empList[x], empList[x]);
+                        }
+                    }                  
+        </script>
+        <body>
+            <div>
+                <h1>Id Card Details</h1>
+                <h2>Name: <%= name%></h2>
+                <h2>Email: <%= email%> </h2>
+                <h2>Position: <%= position%></h2>
+                <h2>Location: <%= location%> </h2>
+            </div>
+            <form name="newUser" id="newUser" action="/newUser" method="POST">
+            <select id="managers" name="managers">
+                <option value="" selected="selected">Select</option>
+            </select>
+
+            <button type="submit">Create</button>
+            </form>
+        </body>
+    </head>
+</html>

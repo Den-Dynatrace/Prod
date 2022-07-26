@@ -3,11 +3,12 @@ var router = express.Router();
 
 /* GET login page */
 router.get('/', function(req, res, next) {
-  res.render('login');
+    if(req.session.isAuthenticated){
+        res.redirect("/auth/signout")
+    }
+    else{
+        res.redirect("/auth/signin")
+    }
 });
-
-router.post('/', function(req,res, next){
-    res.render('index', {title: "SME Tracker"});
-})
 
 module.exports = router;

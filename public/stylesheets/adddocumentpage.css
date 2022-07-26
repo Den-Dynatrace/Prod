@@ -1,0 +1,404 @@
+/*
+	@name adddocumentpage
+*/
+/* Only edit this if you know what you are doing! */
+body { margin: 0px; padding: 0px; font-family:"Arial"; overflow-x:hidden; }
+
+/* Only edit this if you know what you are doing! */
+img { position: absolute; display: block; margin: 0px; border: none; padding: 0px; }
+
+/* Only edit this if you know what you are doing! */
+div { position: absolute; }
+
+#content-container { display: block; position: relative; width: 100%; width: 100%; height: 1439px; overflow: hidden; display: block;  margin-left: auto; margin-right: auto;  }
+
+#_bg__adddocumentpage {
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 1439px;
+	background:rgba(0,0,0,1);
+}
+
+#frame {
+	top: 26px;
+	left: 1327px;
+	width: 77px;
+	height: 74px;
+}
+#___logo {
+	top: 0.5px;
+	left: 0.53px;
+	width: 74.23px;
+	height: 72.18px;
+}
+#logo_dark_bg_default {
+	top: 0px;
+	left: 0px;
+	width: 74.23px;
+	height: 72.18px;
+}
+#dynatrace_logo_rgb_cph_800x142px {
+	top: 0px;
+	left: 0px;
+	width: 74.23px;
+	height: 72.18px;
+}
+#group {
+	top: 0px;
+	left: 0px;
+	width: 74.23px;
+	height: 72.18px;
+}
+
+#shape {
+	top: 6px;
+	left: 0px;
+	width: 25.05px;
+	height: 58.69px;
+}
+
+
+#shape_ek1 {
+	top: 6px;
+	left: 0px;
+	width: 25.05px;
+	height: 22.1px;
+}
+
+
+#shape_ek2 {
+	top: 0px;
+	left: 0px;
+	width: 68.43px;
+	height: 28px;
+}
+
+
+#shape_ek3 {
+	top: 49px;
+	left: 6px;
+	width: 62.14px;
+	height: 23.04px;
+}
+
+
+#shape_ek4 {
+	top: 49px;
+	left: 44px;
+	width: 24.17px;
+	height: 22.99px;
+}
+
+
+#shape_ek5 {
+	top: 8px;
+	left: 44px;
+	width: 30.62px;
+	height: 64.64px;
+}
+
+
+#link_to_content_ {
+	top: 682px;
+	left: 63px;
+	width: 346px;
+	height: 55px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 40px;
+	font-weight: bold;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 18px;
+	margin-top: -18px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
+
+
+#comments_ {
+	top: 774px;
+	left: 63px;
+	width: 257px;
+	height: 55px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 40px;
+	font-weight: bold;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 18px;
+	margin-top: -18px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
+
+
+#content_name_ {
+	top: 603px;
+	left: 63px;
+	width: 329px;
+	height: 60px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 40px;
+	font-weight: bold;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 18px;
+	margin-top: -18px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
+
+
+#technology_tag_ {
+	top: 524px;
+	left: 63px;
+	width: 366px;
+	height: 60px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 40px;
+	font-weight: bold;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 18px;
+	margin-top: -18px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
+
+
+#rectangle_17 {
+	top: 594px;
+	left: 400px;
+	width: 368px;
+	height: 48px;
+	background:rgba(255,255,255,1);
+}
+
+
+#rectangle_19 {
+	top: 516px;
+	left: 400px;
+	width: 368px;
+	height: 48px;
+	background:rgba(255,255,255,1);
+}
+
+
+#quantity_ {
+	top: 454px;
+	left: 63px;
+	width: 329px;
+	height: 60px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 40px;
+	font-weight: bold;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 18px;
+	margin-top: -18px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
+
+
+#rectangle_20 {
+	top: 438px;
+	left: 397px;
+	width: 368px;
+	height: 48px;
+	background:rgba(255,255,255,1);
+}
+
+
+#rectangle_18 {
+	top: 672px;
+	left: 400px;
+	width: 368px;
+	height: 48px;
+	background:rgba(255,255,255,1);
+}
+
+
+#rectangle_21 {
+	top: 774px;
+	left: 397px;
+	width: 821px;
+	height: 371px;
+	background:rgba(255,255,255,1);
+}
+
+#yourprofilebutton_cls_a {
+	top: 1322px;
+	left: 1109px;
+	width: 218px;
+	height: 22px;
+	position: absolute;
+}
+
+#yourprofile {
+	top: 0px;
+	left: -5px;
+	width: 239px;
+	height: 44px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 32px;
+	text-align: center;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#1496FF;
+}
+
+
+#add_a_document {
+	top: 62px;
+	left: 383px;
+	width: 630px;
+	height: 175px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 64px;
+	text-align: center;
+	line-height: 22px;
+	padding-top: 42px;
+	margin-top: -42px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
+
+#dropdown {
+	top: 229px;
+	left: 94px;
+	width: 181px;
+	height: 44px;
+}
+
+#rectangle_19_ek1 {
+	top: 0px;
+	left: 0px;
+	width: 181px;
+	height: 44px;
+	background:rgba(0,0,0,1);
+}
+
+
+#_arrow_1 {
+	top: 22px;
+	left: 153px;
+	width: 23.09px;
+	height: 0px;
+}
+
+#form1{
+	position:relative;
+	top:-1250px;
+	left:450px;
+}
+
+#something {
+	top: 7px;
+	left: 6px;
+	width: 156px;
+	height: 53px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 32px;
+	text-align: center;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#1496FF;
+}
+
+#dropdown_ek1 {
+	top: 229px;
+	left: 584px;
+	width: 181px;
+	height: 44px;
+}
+
+#rectangle_19_ek2 {
+	top: 0px;
+	left: 0px;
+	width: 181px;
+	height: 44px;
+	background:rgba(0,0,0,1);
+}
+
+
+#_arrow_1_ek1 {
+	top: 22px;
+	left: 153px;
+	width: 23.09px;
+	height: 0px;
+}
+
+
+#category_ek1 {
+	top: 7px;
+	left: 6px;
+	width: 156px;
+	height: 53px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 32px;
+	text-align: center;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#1496FF;
+}
+
+#dropdown_ek2 {
+	top: 229px;
+	left: 275px;
+	width: 309px;
+	height: 44px;
+}
+
+#rectangle_19_ek3 {
+	top: 0px;
+	left: 0px;
+	width: 309px;
+	height: 44px;
+	background:rgba(0,0,0,1);
+}
+
+
+#_arrow_1_ek2 {
+	top: 22px;
+	left: 268px;
+	width: 23px;
+	height: 0px;
+}
+
+
+#sub_category {
+	top: 7px;
+	left: 6px;
+	width: 290px;
+	height: 53px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 32px;
+	text-align: center;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#1496FF;
+}
+
+
+
+/* Add your custom CSS here */

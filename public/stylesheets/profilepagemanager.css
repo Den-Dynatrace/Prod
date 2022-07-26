@@ -1,0 +1,268 @@
+/*
+	@name profilepagemanager
+*/
+/* Only edit this if you know what you are doing! */
+body { margin: 0px; padding: 0px; font-family:"Arial"; overflow-x:hidden; }
+
+/* Only edit this if you know what you are doing! */
+img { position: absolute; display: block; margin: 0px; border: none; padding: 0px; }
+
+/* Only edit this if you know what you are doing! */
+div { position: absolute; }
+
+#content-container { display: block; position: relative; width: 100%; width: 100%; height: 1439px; overflow: hidden; display: block;  margin-left: auto; margin-right: auto;  }
+
+#_bg__profilepagemanager {
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 1439px;
+	background:rgba(0,0,0,1);
+}
+
+
+#profilename {
+	top: 167px;
+	left: 48px;
+	width: 751px;
+	height: 81px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 64px;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 42px;
+	margin-top: -42px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
+
+
+#position {
+	top: 237px;
+	left: 48px;
+	width: 605px;
+	height: 60px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 32px;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
+
+
+#location {
+	top: 287px;
+	left: 48px;
+	width: 425px;
+	height: 68px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 32px;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
+
+#frame {
+	top: 26px;
+	left: 1327px;
+	width: 77px;
+	height: 74px;
+}
+#___logo {
+	top: 0.5px;
+	left: 0.53px;
+	width: 74.23px;
+	height: 72.18px;
+}
+#logo_dark_bg_default {
+	top: 0px;
+	left: 0px;
+	width: 74.23px;
+	height: 72.18px;
+}
+#dynatrace_logo_rgb_cph_800x142px {
+	top: 0px;
+	left: 0px;
+	width: 74.23px;
+	height: 72.18px;
+}
+#group {
+	top: 0px;
+	left: 0px;
+	width: 74.23px;
+	height: 72.18px;
+}
+
+#shape {
+	top: 6px;
+	left: 0px;
+	width: 25.05px;
+	height: 58.69px;
+}
+
+
+#shape_ek1 {
+	top: 6px;
+	left: 0px;
+	width: 25.05px;
+	height: 22.1px;
+}
+
+
+#shape_ek2 {
+	top: 0px;
+	left: 0px;
+	width: 68.43px;
+	height: 28px;
+}
+
+
+#shape_ek3 {
+	top: 49px;
+	left: 6px;
+	width: 62.14px;
+	height: 23.04px;
+}
+
+
+#shape_ek4 {
+	top: 49px;
+	left: 44px;
+	width: 24.17px;
+	height: 22.99px;
+}
+
+
+#shape_ek5 {
+	top: 8px;
+	left: 44px;
+	width: 30.62px;
+	height: 64.64px;
+}
+
+
+#languages__english__spanish__german {
+	top: 333px;
+	left: 48px;
+	width: 718px;
+	height: 66px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 32px;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
+
+
+#certifications__aws__azure {
+	top: 377px;
+	left: 48px;
+	width: 593px;
+	height: 64px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 32px;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
+
+
+#employees_ {
+	top: 420px;
+	left: 50px;
+	width: 272px;
+	height: 60px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 32px;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 18px;
+	margin-top: -18px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
+
+#creatorbutton_cls_a {
+	top: 637px;
+	left: 0px;
+	width: 577px;
+	height: 56px;
+	position: absolute;
+}
+
+#rectangle_5 {
+	top: 0px;
+	left: 0px;
+	width: 577px;
+	height: 56px;
+	background:rgba(0,0,0,1);
+}
+
+
+#made_by__johnny_appleseed {
+	top: 14px;
+	left: 39px;
+	width: 458px;
+	height: 50px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 32px;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
+
+#editbutton {
+	top: 419px;
+	left: 887px;
+	width: 177px;
+	height: 48px;
+}
+#editbutton_ek1_cls_a {
+	top: 432px;
+	left: 895px;
+	width: 161px;
+	height: 22px;
+	position: absolute;
+}
+
+#edit {
+	top: 0px;
+	left: -5px;
+	width: 182px;
+	height: 44px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 32px;
+	text-align: center;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#1496FF;
+}
+
+
+
+/* Add your custom CSS here */

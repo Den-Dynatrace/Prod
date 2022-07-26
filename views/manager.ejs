@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+        <title>profilepagemanager</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="" >
+        <link rel="Stylesheet" href="stylesheets/profilepagemanager.css">
+        <script src="https://secure.exportkit.com/cdn/js/ek_googlefonts.js?v=6"></script>
+    </head>
+        <body>
+            <div id ="content-container">
+                <div id="_bg__profilepagemanager"></div>
+                <div id ="profilename">
+                    <%= name%> 
+                </div>
+                <div id="position">
+                    Email: <%= email%>
+                </div>
+                <div id="location">
+                    Title:<%= title%>
+                </div>
+                <div id="frame"  >
+
+                    <div id="___logo"  >
+    
+                        <div id="logo_dark_bg_default"  >
+    
+                            <div id="dynatrace_logo_rgb_cph_800x142px"  >
+    
+                                <div id="group"  >
+                                    <img src="images/shape.png" id="shape" />
+                                    <img src="images/shape_ek1.png" id="shape_ek1" />
+                                    <img src="images/shape_ek2.png" id="shape_ek2" />
+                                    <img src="images/shape_ek3.png" id="shape_ek3" />
+                                    <img src="images/shape_ek4.png" id="shape_ek4" />
+                                    <img src="images/shape_ek5.png" id="shape_ek5" />
+    
+                                </div>
+    
+                            </div>
+    
+                        </div>
+    
+                    </div>
+    
+                </div>
+                <div id = "employees_">
+                    Employees:
+                </div>
+                <form name="employeeView" id="employeeslist_" action="/manager" method="POST" style="color: 1496FF; position:relative; top: 425px; left: 250px;">       
+                <script>
+                    window.onload = function() {
+                        var raw = "<%= managerList%>";
+                        let empList = raw.split(",");
+                        var empSelect = document.getElementById("employee")
+                        for(var x in empList){
+                            empSelect.options[empSelect.options.length] = new Option(empList[x], empList[x]);
+                        }
+                    }                  
+              </script>
+            <select id="employee" name="employee" style="width: 500px;">
+                <option value="" selected="selected">Select</option>
+            </select>
+            
+            <button type="submit" style="left: 100px; top:-20px;">View Profile</button>
+            </form>
+         </div>
+        </body>
+</html>

@@ -1,6 +1,9 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb://smetracker:oaAV5HdOIySTWqsDKnSMg7HeJ4mVCmLxu4JeKeIDHLeDriEiKaXRXp9hCdbu741mJlL6HLIi1HwYlYntcxPqeg%3D%3D@smetracker.mongo.cosmos.azure.com:10255/?ssl=true&retrywrites=false&maxIdleTimeMS=120000&appName=@smetracker@";
+require("dotenv").config();
+const fetch = require("./public/javascripts/fetch.js")
+const { MongoClient } = require('mongodb');
+const uri = process.env.MONGO_URI
 const client = new MongoClient(uri);
+
 
 function inject(user, doc){
     //INSERT ONE//
@@ -11,24 +14,47 @@ function inject(user, doc){
             if (err) throw err;
             console.log("Inserted Docs");
         });
+        
     });
 }
 
-
-function employeeNames(){
-    //COLLECTION NAMES//
-    employees = []
-    client.connect(err => {
+async function employeeListUpdate(manager, emp){
+  return new Promise(function(resolve, reject){
     const connect = client.db("SME_Tracker")
-    connect.listCollections().toArray(function(err, names) {   
-        if(err) throw err;
-        for (let item in names){
-            //console.log(names[item]['name'])
-            employees.concat([names[item]['name']])
-        };
+    connect.collection("managers").updateOne(
+      {_id: manager},
+      { $addToSet: {Employees: emp}}
+    )
+    return resolve(true)
+  })
+}
+
+
+async function mgmtList(){
+  return new Promise(function(resolve, reject){
+    const connect = client.db("SME_Tracker")
+    connect.collection("managers").find({}).project({_id:1}).toArray(function(err, result){
+      console.log(result)
+      if(err) {
+        return reject(err)
+      }
+      return resolve(result)
+    })
+  })
+}
+
+
+async function employeeNames(managerEmail){
+    return new Promise(function(resolve, reject) {
+      const connect = client.db("SME_Tracker")
+      connect.collection("managers").find({"_id": managerEmail}).toArray(function(err, results) {   
+          if(err) {
+            return reject(err)
+          }
+          //console.log(results[0]["Employees"])
+          return resolve(results[0])
         });
-    });
-    return employees
+  });
 }
 
 
@@ -43,13 +69,14 @@ function tagQuery(tag, language){
 async function numberQuery(query, user){ 
 //SIMPLE QUERY//
 return new Promise(function(resolve, reject) {
+  
   const connect = client.db("SME_Tracker")
   connect.collection(user).find(query).toArray( async function(err, docs) {
    if (err) {
      // Reject the Promise with an error
      return reject(err)
    }
-   console.log(docs.length)
+   console.log(docs)
    // Resolve (or fulfill) the promise with data
    return await resolve(docs.length)
  })
@@ -80,6 +107,38 @@ function dropCollection(user){
   })
 }
 
-exports.numberQuery = numberQuery
-exports.empID = empID
-exports.inject = inject
+async function newUser(userInfo, mgmt){
+  id = userInfo.mail.split("@")
+  console.log(userInfo)
+  id_doc = {
+  "_id" : id[0],
+  "id_card" : "ID Card",
+  "Position" : userInfo.jobTitle,
+  "Location": userInfo.officeLocation,
+  "name": userInfo.givenName + " " + userInfo.surname,
+  "manager": mgmt
+  }
+  return new Promise(function(resolve, reject){
+    client.connect(err => {
+      const collection = client.db("SME_Tracker").collection(id[0]);
+      if (err) return reject(err) ;
+      collection.insertOne(id_doc, function(err, res){
+          if (err) return reject(err);
+          console.log("Inserted Docs");
+          return resolve(true);
+      });
+  })
+});
+}
+
+
+
+module.exports = {
+numberQuery,
+empID,
+inject,
+employeeNames,
+mgmtList,
+newUser,
+employeeListUpdate
+};

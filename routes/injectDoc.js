@@ -1,23 +1,36 @@
 var express = require('express');
 var router = express.Router();
-const {inject} = require('../db_queries.js')
+var bodyParser = require('body-parser');
+const {inject} = require('../db_queries.js');
+const {isAuthenticated, isMGMT} = require('../public/javascripts/utils.js')
+
 
 /* GET Inject view */
-router.get('/', function(req, res, next) {
+router.get('/', isAuthenticated, isMGMT, function(req, res, next) {
   res.render('injectDoc');
 });
 
-router.post('/injectDoc', function (req, res) {
-    doc = {
-    "Overall" : req.body.Overall,
-    "Sub-Cat" : req.body.SubCat,
-    "metric" : req.body.metric,
-    "value" : req.body.value,
-    "Proof" : req.body.Proof,
-    "Notes" : req.body.notes,
-    "Tag" : req.body.Tag
+router.post('/', async function (req, res, next) {
+  tokenClaims = req.session.account.idTokenClaims;
+  var user = tokenClaims.preferred_username.split("@")
+  var overall = await req.body.subject;
+  var subcat = await req.body.topic;
+  var metric = await req.body.chapter;
+  var tag = req.body.tags;
+  var proof = await req.body.proof
+  var notes = await req.body.Comment
+  doc = {
+    "Overall" : overall,
+    "Sub-Cat" : subcat,
+    "metric" : metric,
+    "value" : req.body.val,
+    "Proof" : proof,
+    "Notes" : notes,
+    "Tag" : tag
     }
-    inject(user, doc)
+    //console.log(doc)
+    inject(user[0], doc)
+    res.redirect('/')
   })
 
 module.exports = router;
