@@ -1,12 +1,16 @@
 {
-  "name": "myexpressapp",
-  "version": "0.0.0",
+  "name": "smetracker",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www "
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "express-flash": "^0.0.2",
+    "@azure/msal-node": "^1.12.0",
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
     "cookieparser": "^0.1.0",
     "debug": "~2.6.9",
     "dotenv": "^16.0.1",
