@@ -69,16 +69,21 @@ function tagQuery(tag, language){
 async function numberQuery(query, user){ 
 //SIMPLE QUERY//
 return new Promise(function(resolve, reject) {
-  
+  var sum = 0;
+  var result = []
   const connect = client.db("SME_Tracker")
   connect.collection(user).find(query).toArray( async function(err, docs) {
    if (err) {
      // Reject the Promise with an error
      return reject(err)
    }
-   console.log(docs)
-   // Resolve (or fulfill) the promise with data
-   return await resolve(docs.length)
+   for(entries in docs){
+    sum += Number(docs[entries]["value"]);
+    result.push(docs[entries]["Proof"]);
+   }
+   result = [sum].concat(result)
+   //console.log(result)
+   return await resolve(result)
  })
 })
 }
@@ -131,6 +136,26 @@ async function newUser(userInfo, mgmt){
 });
 }
 
+async function newManager(manager){
+  id_doc = {
+    "_id": manager.mail,
+    "name": manager.displayName,
+    "location": manager.officeLocation,
+    "Title": manager.jobTitle,
+    "Employees" : []
+  }
+  return new Promise(function(resolve, reject){
+    client.connect(err => {
+      const collection = client.db("SME_Tracker").collection("managers")
+      if (err) return reject(err);
+      collection.insertOne(id_doc, function(err, res){
+        if (err) return reject(err);
+        console.log("Inserted Docs")
+        return resolve(true);
+      })
+    })
+  })
+}
 
 
 module.exports = {
@@ -140,5 +165,6 @@ inject,
 employeeNames,
 mgmtList,
 newUser,
-employeeListUpdate
+employeeListUpdate,
+newManager
 };

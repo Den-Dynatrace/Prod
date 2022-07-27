@@ -30,7 +30,7 @@ router.post('/', async function (req, res, next) {
     }
     //console.log(doc)
     inject(user[0], doc)
-    res.redirect('/')
+    res.redirect('/profile')
   })
 
 module.exports = router;
