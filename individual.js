@@ -73,11 +73,11 @@ queries = [
 
     {"Overall": "Product feedback (product, self-help, internal processes)",
     "Sub-Cat": "Develop content to help deflect chats" ,
-    "metric": "#/%dec. in chats"},
+    "metric": "#/% dec. in chats"},
 
     {"Overall": "Product feedback (product, self-help, internal processes)",
     "Sub-Cat": "Work with Product Management/R&D to improve product self-service",
-    "metric": "# of product enhancements requested/released"},
+    "metric": "# of product enhancements requests/released"},
 
     {"Overall": "Product feedback (product, self-help, internal processes)",
     "Sub-Cat": "Work with Product Management/R&D to improve product self-service" ,
@@ -85,7 +85,7 @@ queries = [
 
     {"Overall": "Product feedback (product, self-help, internal processes)",
     "Sub-Cat": "Work with Product Management/R&D to improve product self-service" ,
-    "metric": "#/%decrease in chats"},
+    "metric": "#/% decrease in chats"},
 
     {"Overall": "D1 representative/evangelist (internal and external)",
     "Sub-Cat": "Participate in cross-functional SWAT, Value Creation, etc. teams",
@@ -133,18 +133,18 @@ queries = [
 
     {"Overall": "Recognition & impact",
     "Sub-Cat": "Act as an escalation point",
-    "metric": "# of hours in chat outside of shift"},
+    "metric": "# hours in chat outside of shift"},
 
     {"Overall": "Recognition & impact",
     "Sub-Cat": "Act as an escalation point",
-    "metric": "# of escalations handled"},
+    "metric": "# escalations handled"},
 
     {"Overall": "Recognition & impact",
-    "Sub-Cat": "Participate in internal process development and continous improvement",
+    "Sub-Cat": "Participate in internal process development and continuous improvement",
     "metric": "# of new/improved processes"},
 
     {"Overall": "Recognition & impact",
-    "Sub-Cat": "Participate in internal process development and continous improvement",
+    "Sub-Cat": "Participate in internal process development and continuous improvement",
     "metric": "% time/efficiency improvement"}
 ]
 

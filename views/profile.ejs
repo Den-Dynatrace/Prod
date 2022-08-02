@@ -7,11 +7,27 @@
 		<meta name="description" content="" >
 		<link rel="StyleSheet" href='stylesheets/profilepageuser.css'/>
 		<script src="https://secure.exportkit.com/cdn/js/ek_googlefonts.js?v=6"></script>
-		<!-- Add your custom HEAD content here -->
+		<script>
+			function getLinks(metric, links){
+				var div = document.getElementById(metric)
+				oldTable = div.lastChild;
+				if(oldTable){
+					div.removeChild(oldTable);
+				}
+				var popupText = document.createElement("ul");
+				var linkAray = links.split(",")
+				for(link in linkAray){
+					let li = document.createElement("li");
+					li.innerHTML = '<a href="'+linkAray[link]+'" target="_blank">'+linkAray[link]+'</a>';
+					popupText.appendChild(li);
+				}
+				div.appendChild(popupText);
+			}
+		</script>
 
 	</head>
 	<body>
-		<div id="content-container" >
+		<div id="content-container" ></div>
 			<div id="_bg__profilepageuser"  ></div>
 
 			<div id="frame_7"  >
@@ -72,9 +88,6 @@
 
 				</div>
 
-			</div>
-			<div id="content_" >
-				Content:
 			</div>
 
 			<div id="smeheader"  >
@@ -235,91 +248,168 @@
 			</div>
 
 			<div id="valuebox_ek1"  > <!--# of sessions-->
-				<div id="rectangle_13"  ></div>
-				<div id="value_ek1" >
-					<%= a0 %>
+				<div class = "box">
+					<a id="rectangle_13"  href="#divOne" class="button" onclick="getLinks('numSessions', '<%= b0%>')"><%= a0 %></a>
 				</div>
+				<div class="overlay" id="divOne">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="numSessions" class = "container">
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+				
 
 			</div>
 
 			<div id="valuebox_ek2"  ><!--# of others participating in lab development-->
-				<div id="rectangle_13_ek1"  ></div>
-				<div id="value_ek2" >
-					<%= a10 %>
+				<div class="box" id="box2">
+					<a id="rectangle_13_ek1"  href="#divEleven" class="button" onclick="getLinks('#ofOthersParticipatingLabDev', '<%=b10%>')"><%= a10 %></a>
+				</div>
+				<div class="overlay" id="divEleven">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofOthersParticipatingLabDev" class="container"></div>
+						</div>
+					</div>
 				</div>
 
 			</div>
 
 			<div id="valuebox_ek3"  ><!--# of others using labs-->
-				<div id="rectangle_13_ek2"  ></div>
-				<div id="value_ek3" >
-					<%= a9 %> 
+				<div class="box" id="box3">
+					<a id="rectangle_13_ek2"  href="#divTen" class="button" onclick="getLinks('#ofOthersUsingLabs', '<%=b9%>')"><%= a9 %></a>
+				</div>
+				<div class="overlay" id="divTen">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofOthersUsingLabs" class="container"></div>
+						</div>
+					</div>
 				</div>
 
 			</div>
 
 			<div id="valuebox_ek4"  ><!--# of environments developed-->
-				<div id="rectangle_13_ek3"  ></div>
-				<div id="value_ek4" >
-					<%= a8 %>
+				<div class="box" id="box4">
+					<a id="rectangle_13_ek3"  href="#divNine" class="button" onclick="getLinks('#ofEnvDev', '<%=b8%>')"><%= a8 %></a>
+				</div>
+				<div class="overlay" id="divNine">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofEnvDev" class="container"></div>
+						</div>
+					</div>
 				</div>
 
 			</div>
 
 			<div id="valuebox_ek5"  ><!--# of topics developed-->
-				<div id="rectangle_13_ek4"  ></div>
-				<div id="value_ek5" >
-					<%= a7 %>
+				<div class="box" id="box5">
+					<a id="rectangle_13_ek4"  href="#divEight" class="button" onclick="getLinks('#ofTopicsDev', '<%=b7%>')"><%= a7 %></a>
+				</div>
+				<div class="overlay" id="divEight">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofTopicsDev" class="container"></div>
+						</div>
+					</div>
 				</div>
 
 			</div>
 
 			<div id="valuebox_ek6"  ><!--# of best practice guidlines-->
-				<div id="rectangle_13_ek5"  ></div>
-				<div id="value_ek6" >
-					<%= a6 %>
+				<div class="box" id="box6">
+					<a id="rectangle_13_ek5"  href="#divSeven" class="button" onclick="getLinks('#ofBestPractice', '<%=b6%>')"><%= a6 %></a>
 				</div>
-
+				<div class="overlay" id="divSeven">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofBestPractice" class="container"></div>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<div id="valuebox_ek7"  ><!--# of meetings participated in-->
-				<div id="rectangle_13_ek6"  ></div>
-				<div id="value_ek7" >
-					<%= a5 %>
+				<div class="box" id="box7">
+					<a id="rectangle_13_ek6"  href="#divSix" class="button" onclick="getLinks('#ofMeetings', '<%=b5%>')"><%= a5 %></a>
+				</div>
+				<div class="overlay" id="divSix">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofMeetings" class="container"></div>
+						</div>
+					</div>
 				</div>
 
 			</div>
 
 			<div id="valuebox_ek8"  ><!--% CSAT score-->
-				<div id="rectangle_13_ek7"  ></div>
-				<div id="value_ek8" >
-					<%= a4 %>
+				<div class="box" id="box8">
+					<a id="rectangle_13_ek7"  href="#divFive" class="button" onclick="getLinks('percentCSAT', '<%=b4%>')"><%= a4 %></a>
 				</div>
-
+				<div class="overlay" id="divFive">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="percentCSAT" class="container"></div>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<div id="valuebox_ek9"  ><!--# of training delivered-->
-				<div id="rectangle_13_ek8"  ></div>
-				<div id="value_ek9" >
-					<%= a3 %>
+				<div class="box" id="box9">
+					<a id="rectangle_13_ek8"  href="#divFour" class="button" onclick="getLinks('numTrainingDelivered', '<%=b3%>')"><%= a3 %></a>
+				</div>
+				<div class="overlay" id="divFour">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="numTrainingDelivered" class="container"></div>
+						</div>
+					</div>
 				</div>
 
 			</div>
 
 			<div id="valuebox_ek10"  ><!--# of DU content-->
-				<div id="rectangle_13_ek9"  ></div>
-				<div id="value_ek10" >
-					<%= a2 %>
+				<div class="box">
+					<a id="rectangle_13_ek9"  href="#divThree" class="button" onclick="getLinks('numDUContent', '<%=b2%>')"><%= a2 %></a>
+				</div>
+				<div class="overlay" id="divThree">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="numDUContent" class="container"></div>
+						</div>
+					</div>
 				</div>
 
 			</div>
 
 			<div id="valuebox_ek11"  ><!--# of videos-->
-				<div id="rectangle_13_ek10"  ></div>
-				<div id="value_ek11" >
-					<%= a1 %>
+				<div class="box">
+					<a id="rectangle_13_ek10"  href="#divTwo" class="button" onclick="getLinks('numVideos', '<%=b1%>')"><%= a1 %></a>
 				</div>
-
+				<div class="overlay" id="divTwo">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="numVideos" class="container"></div>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<div id="metricbox_ek25"  >
@@ -443,89 +533,166 @@
 			</div>
 
 			<div id="valuebox_ek12"  ><!--# of topics reviewed-->
-				<div id="rectangle_13_ek11"  ></div>
-				<div id="value_ek12" >
-					<%= a11 %>
+				<div class="box" id="box12">
+					<a id="rectangle_13_ek11"  href="#divTwelve" class="button" onclick="getLinks('#ofTopicsRev', '<%=b11%>')"><%= a11 %></a>
+				</div>
+				<div class="overlay" id="divTwelve">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofTopicsRev" class="container"></div>
+						</div>
+					</div>
 				</div>
 
 			</div>
 
 			<div id="valuebox_ek13"  ><!--#/% dec. in chats-->
-				<div id="rectangle_13_ek12"  ></div>
-				<div id="value_ek13" >
-					<%= a18 %>
+				<div class="box" id="box13">
+					<a id="rectangle_13_ek12"  href="#divNineteen" class="button" onclick="getLinks('#/%decinChats', '<%=b18%>')"><%= a18 %></a>
 				</div>
-
+				<div class="overlay" id="divNineteen">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#/%decinChats" class="container"></div>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<div id="valuebox_ek14"  ><!--# of articles written-->
-				<div id="rectangle_13_ek13"  ></div>
-				<div id="value_ek14" >
-					<%= a16 %>
+				<div class="box" id="box14">
+					<a id="rectangle_13_ek13"  href="#divSeventeen" class="button" onclick="getLinks('#ofArticlesWritten', '<%=b16%>')"><%= a16 %></a>
+				</div>
+				<div class="overlay" id="divSeventeen">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofArticlesWritten" class="container"></div>
+						</div>
+					</div>
 				</div>
 
 			</div>
 
 			<div id="valuebox_ek15"  ><!--#/% inc. of self-help-->
-				<div id="rectangle_13_ek14"  ></div>
-				<div id="value_ek15" >
-					<%= a17 %>
+				<div class="box" id="box15">
+					<a id="rectangle_13_ek14"  href="#divEighteen" class="button" onclick="getLinks('#/%ofselfhelp', '<%=b17%>')"><%= a17 %></a>
 				</div>
+				<div class="overlay" id="divEighteen">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#/%ofselfhelp" class="container"></div>
+						</div>
+					</div>
+				</div>
+
 
 			</div>
 
 			<div id="valuebox_ek16"  ><!--#/% decrease in chats-->
-				<div id="rectangle_13_ek15"  ></div>
-				<div id="value_ek16" >
-					<%= a21 %>
+				<div class="box" id="box16">
+					<a id="rectangle_13_ek15"  href="#divTwentyTwo" class="button" onclick="getLinks('#/%DecinChat', '<%=b21%>')"><%= a21 %></a>
+				</div>
+				<div class="overlay" id="divTwentyTwo">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#/%DecinChat" class="container"></div>
+						</div>
+					</div>
 				</div>
 
 			</div>
 
 			<div id="valuebox_ek17"  ><!--#/% increase of self-help-->
-				<div id="rectangle_13_ek16"  ></div>
-				<div id="value_ek17" >
-					<%= a20 %>
+				<div class="box" id="box17">
+					<a id="rectangle_13_ek16"  href="#divTwentyOne" class="button" onclick="getLinks('#/%IncreaseofSH', '<%=b20%>')"><%= a20 %></a>
+				</div>
+				<div class="overlay" id="divTwentyOne">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#/%IncreaseofSH" class="container"></div>
+						</div>
+					</div>
 				</div>
 
 			</div>
 
 			<div id="valuebox_ek18"  ><!--# of product enhancements requests/released-->
-				<div id="rectangle_13_ek17"  ></div>
-				<div id="value_ek18" >
-					<%= a19 %>
+				<div class="box" id="box18">
+					<a id="rectangle_13_ek17"  href="#divTwenty" class="button" onclick="getLinks('#ofProdEnhancements', '<%=b19%>')"><%= a19 %></a>
+				</div>
+				<div class="overlay" id="divTwenty">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofProdEnhancements" class="container"></div>
+						</div>
+					</div>
 				</div>
 
 			</div>
 
 			<div id="valuebox_ek19"  ><!--# of TKBs created/edited-->
-				<div id="rectangle_13_ek18"  ></div>
-				<div id="value_ek19" >
-					<%= a15 %>
+				<div class="box" id="box19">
+					<a id="rectangle_13_ek18"  href="#divSixteen" class="button" onclick="getLinks('#ofTKBs', '<%=b15%>')"><%= a15 %></a>
+				</div>
+				<div class="overlay" id="divSixteen">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofTKBs" class="container"></div>
+						</div>
+					</div>
 				</div>
 
 			</div>
 
 			<div id="valuebox_ek20"  ><!--# of answer bots developed-->
-				<div id="rectangle_13_ek19"  ></div>
-				<div id="value_ek20" >
-					<%= a14 %>
+				<div class="box" id="box20">
+					<a id="rectangle_13_ek19"  href="#divFifteen" class="button" onclick="getLinks('#ofAnsBotsDev', '<%=b14%>')"><%= a14 %></a>
+				</div>
+				<div class="overlay" id="divFifteen">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofAnsBotsDev" class="container"></div>
+						</div>
+					</div>
 				</div>
 
 			</div>
 
 			<div id="valuebox_ek21"  ><!--# of reccomendations provided-->
-				<div id="rectangle_13_ek20"  ></div>
-				<div id="value_ek21" >
-					<%= a13 %>
+				<div class="box" id="box21">
+					<a id="rectangle_13_ek20"  href="#divFourteen" class="button" onclick="getLinks('#ofRecProv', '<%=b13%>')"><%= a13 %></a>
+				</div>
+				<div class="overlay" id="divFourteen">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofRecProv" class="container"></div>
+						</div>
+					</div>
 				</div>
 
 			</div>
 
 			<div id="valuebox_ek22"  ><!--# of trends identified-->
-				<div id="rectangle_13_ek21"  ></div>
-				<div id="value_ek22" >
-					<%= a12 %>
+				<div class="box" id="box22">
+					<a id="rectangle_13_ek21"  href="#divThirteen" class="button" onclick="getLinks('#ofTrendsID', '<%=b12%>')"><%= a12 %></a>
+				</div>
+				<div class="overlay" id="divThirteen">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofTrendsID" class="container"></div>
+						</div>
+					</div>
 				</div>
 
 			</div>
@@ -643,67 +810,124 @@
 			</div>
 
 			<div id="valuebox_ek23"  ><!--# of meetings attended-->
-				<div id="rectangle_13_ek22"  ></div>
-				<div id="value_ek23" >
-					<%= a22 %>
+				<div class="box" id="box23">
+					<a id="rectangle_13_ek22"  href="#divTwentyThree" class="button" onclick="getLinks('#ofMeetingsAttended', '<%=b22%>')"><%= a22 %></a>
 				</div>
+				<div class="overlay" id="divTwentyThree">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofMeetingsAttended" class="container"></div>
+						</div>
+					</div>
+				</div>
+
 
 			</div>
 
 			<div id="valuebox_ek24"  ><!--# of meetings where TPS is presenting on a global or cross regional basis-->
-				<div id="rectangle_13_ek23"  ></div>
-				<div id="value_ek24" >
-					<%= a29 %>
+				<div class="box" id="box24">
+					<a id="rectangle_13_ek23"  href="#divThirty" class="button" onclick="getLinks('#ofTPSPres', '<%=b29%>')"><%= a29 %></a>
 				</div>
+				<div class="overlay" id="divThirty">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofTPSPres" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
 
 			</div>
 
 			<div id="valuebox_ek25"  ><!--# of internal meetings where TPS is highlighted-->
-				<div id="rectangle_13_ek24"  ></div>
-				<div id="value_ek25" >
-					<%= a28 %>
+				<div class="box" id="box25">
+					<a id="rectangle_13_ek24"  href="#divTwentyNine" class="button" onclick="getLinks('#ofTPSHighlight', '<%=b28%>')"><%= a28 %></a>
 				</div>
+				<div class="overlay" id="divTwentyNine">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofTPSHighlight" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
 
 			</div>
 
 			<div id="valuebox_ek26"  ><!--# of presentations shared-->
-				<div id="rectangle_13_ek25"  ></div>
-				<div id="value_ek26" >
-					<%= a27 %>
+				<div class="box" id="box26">
+				<a id="rectangle_13_ek25"  href="#divTwentyEight" class="button" onclick="getLinks('#ofPresShare', '<%=b27%>')"><%= a27 %></a>
+			</div>
+			<div class="overlay" id="divTwentyEight">
+				<div class="wrapper">
+					<a href="#" class="close">&times; Close</a>
+					<div class="content">
+						<div id="#ofPresShare" class="container"></div>
+					</div>
 				</div>
 
+		</div>
 			</div>
 
 			<div id="valuebox_ek27"  ><!--# of conferences attended-->
-				<div id="rectangle_13_ek26"  ></div>
-				<div id="value_ek27" >
-					<%= a26 %>
+				<div class="box" id="box27">
+					<a id="rectangle_13_ek26"  href="#divTwentySeven" class="button" onclick="getLinks('#ofConfAtt', '<%=b26%>')"><%= a26 %></a>
 				</div>
+				<div class="overlay" id="divTwentySeven">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofConfAtt" class="container"></div>
+						</div>
+					</div>
 
 			</div>
+			</div>
 
-			<div id="valuebox_ek28"  ><!--# of reads per article-->
-				<div id="rectangle_13_ek27"  ></div>
-				<div id="value_ek28" >
-					<%= a25 %>
+			<div id="valuebox_ek28"  ><!--# reads per article-->
+				<div class="box" id="box28">
+					<a id="rectangle_13_ek27"  href="#divTwentySix" class="button" onclick="getLinks('#ofReadsPerArt', '<%=b25%>')"><%= a25 %></a>
 				</div>
+				<div class="overlay" id="divTwentySix">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofReadsPerArt" class="container"></div>
+						</div>
+					</div>
 
+			</div>
 			</div>
 
 			<div id="valuebox_ek29"  ><!--# of articles published-->
-				<div id="rectangle_13_ek28"  ></div>
-				<div id="value_ek29" >
-					<%= a24 %>
+				<div class="box" id="box29">
+					<a id="rectangle_13_ek28"  href="#divTwentyFive" class="button" onclick="getLinks('#ofArtPub', '<%=b24%>')"><%= a24 %></a>
 				</div>
-
+				<div class="overlay" id="divTwentyFive">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofArtPub" class="container"></div>
+						</div>
+					</div>
+			</div>
 			</div>
 
 			<div id="valuebox_ek30"  ><!--# of groups represented in-->
-				<div id="rectangle_13_ek29"  ></div>
-				<div id="value_ek30" >
-					<%= a23 %>
+				<div class="box" id="box30">
+					<a id="rectangle_13_ek29"  href="#divTwentyFour" class="button" onclick="getLinks('#ofGroupsRep', '<%=b23%>')"><%= a23 %></a>
 				</div>
-
+				<div class="overlay" id="divTwentyFour">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofGroupsRep" class="container"></div>
+						</div>
+					</div>
+			</div>
 			</div>
 
 			<div id="contentandlabdevelopmentbox_ek3"  >
@@ -811,59 +1035,113 @@
 			</div>
 
 			<div id="valuebox_ek31"  ><!--# of advanced certs-->
-				<div id="rectangle_13_ek30"  ></div>
-				<div id="value_ek31" >
-					<%= a30 %>
+				<div class="box" id="box31">
+					<a id="rectangle_13_ek30"  href="#divThirtyOne" class="button" onclick="getLinks('#ofAdvCert', '<%=b30%>')"><%= a30 %></a>
 				</div>
+				<div class="overlay" id="divThirtyOne">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofAdvCert" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
 
 			</div>
 
 			<div id="valuebox_ek32"  ><!--% time/efficiency improvement-->
-				<div id="rectangle_13_ek31"  ></div>
-				<div id="value_ek32" >
-					<%= a36 %>
+				<div class="box" id="box32">
+					<a id="rectangle_13_ek31"  href="#divThirtySeven" class="button" onclick="getLinks('%time', '<%=b36%>')"><%= a36 %></a>
 				</div>
-
+				<div class="overlay" id="divThirtySeven">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="%time" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
 			</div>
 
 			<div id="valuebox_ek33"  ><!--# of new/imporved processes-->
-				<div id="rectangle_13_ek32"  ></div>
-				<div id="value_ek33" >
-					<%= a35 %>
+				<div class="box" id="box33">
+					<a id="rectangle_13_ek32"  href="#divThirtySix" class="button" onclick="getLinks('#ofnew/imp', '<%=b35%>')"><%= a35 %></a>
 				</div>
+				<div class="overlay" id="divThirtySix">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofnew/imp" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
 
 			</div>
 
 			<div id="valuebox_ek34"  ><!--# of escalations handled-->
-				<div id="rectangle_13_ek33"  ></div>
-				<div id="value_ek34" >
-					<%= a34 %>
+				<div class="box" id="box34">
+					<a id="rectangle_13_ek33"  href="#divThirtyFive" class="button" onclick="getLinks('#ofEscal', '<%=b34%>')"><%= a34 %></a>
 				</div>
+				<div class="overlay" id="divThirtyFive">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofEscal" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
 
 			</div>
 
 			<div id="valuebox_ek35"  ><!--# hours in chat outside of shift-->
-				<div id="rectangle_13_ek34"  ></div>
-				<div id="value_ek35" >
-					<%= a33 %>
+				<div class="box" id="box35">
+					<a id="rectangle_13_ek34"  href="#divThirtyFour" class="button" onclick="getLinks('#ofChatOutside', '<%=b33%>')"><%= a33 %></a>
 				</div>
+				<div class="overlay" id="divThirtyFour">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofChatOutside" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
 
 			</div>
 
 			<div id="valuebox_ek36"  ><!--# of customer meetings on SME topic, CSAT%-->
-				<div id="rectangle_13_ek35"  ></div>
-				<div id="value_ek36" >
-					<%= a32 %>
+				<div class="box" id="box36">
+					<a id="rectangle_13_ek35"  href="#divThirtyThree" class="button" onclick="getLinks('#ofCustMeet', '<%=b32%>')"><%= a32 %></a>
 				</div>
+				<div class="overlay" id="divThirtyThree">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofCustMeet" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
 
 			</div>
 
 			<div id="valuebox_ek37"  ><!--# of advanced training courses completred-->
-				<div id="rectangle_13_ek36"  ></div>
-				<div id="value_ek37" >
-					<%= a31 %>
+				<div class="box" id="box37">
+					<a id="rectangle_13_ek36"  href="#divThirtyTwo" class="button" onclick="getLinks('#ofAdvTrain', '<%=b31%>')"><%= a31 %></a>
 				</div>
-
+				<div class="overlay" id="divThirtyTwo">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofAdvTrain" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
 			</div>
 
 			<div id="subtotals"  >
@@ -996,7 +1274,7 @@
 
 			<a id="logoutbutton_cls_a" _par="" href="/auth/signout">
 				<div id="log_out" >
-					<br/> Log out
+					 Log out
 				</div>
 			</a>
 
@@ -1006,6 +1284,6 @@
 			<div id="line_27"  ></div>
 			<div id="line_28"  ></div>
 
-		</div>
+	
 	</body>
 </html>

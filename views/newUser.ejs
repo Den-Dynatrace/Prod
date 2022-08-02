@@ -1,19 +1,63 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-        <h1>Adding New User</h1>
-        <body>
-            <div>
-                <h1>Id Card Details</h1>
+        <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+		<title>newuserpage</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="" >
+		<link rel="StyleSheet" href="stylesheets/newuserpage.css" />
+		<script src="https://secure.exportkit.com/cdn/js/ek_googlefonts.js?v=6"></script>
+    </head>
+    <body>
+     <div id="'content-container"></div>
+        <div id="_bg__newuserpage"></div>
+        <div id="frame"  >
+
+            <div id="___logo"  >
+
+                <div id="logo_dark_bg_default"  >
+
+                    <div id="dynatrace_logo_rgb_cph_800x142px"  >
+
+                        <div id="group"  >
+                            <img src="images/shape.png" id="shape" />
+                            <img src="images/shape_ek1.png" id="shape_ek1" />
+                            <img src="images/shape_ek2.png" id="shape_ek2" />
+                            <img src="images/shape_ek3.png" id="shape_ek3" />
+                            <img src="images/shape_ek4.png" id="shape_ek4" />
+                            <img src="images/shape_ek5.png" id="shape_ek5" />
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div>
+        <form name="newUser" id="newUser" action="/newUser" method="POST" >
+            <button type="submit"  id="submitbutton" >Confirm</button>
+        </form>
+        </div>
+        <div id = "header">Confirm Details Below</div>
+            <div id = "frame_7">
                 <h2>Name: <%= name%></h2>
+            </div>
+            <div id="frame_9">
                 <h2>Email: <%= email%> </h2>
+            </div>
+            <div id = "frame_6">
                 <h2>Position: <%= position%></h2>
+            </div>
+            <div id = "frame_8">
                 <h2>Location: <%= location%> </h2>
+            </div>
+            <div id = "frame_10">
                 <h2>Manager: <%= mgmt%></h2>
             </div>
-            <form name="newUser" id="newUser" action="/newUser" method="POST">
-            <button type="submit">Create</button>
-            </form>
-        </body>
-    </head>
+        
+    
+    </body>
 </html>

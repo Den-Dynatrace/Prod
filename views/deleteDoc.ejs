@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" >
+	<head>
+		<meta http-equiv="content-type" content="text/html" charset="utf-8" />
+		<title>deletedocpage</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="" >
+		<link rel="StyleSheet" href="stylesheets/deletedocpage.css" />
+		<script src="https://secure.exportkit.com/cdn/js/ek_googlefonts.js?v=6"></script>
+        <script>
+            var subjectObject = {
+                "Content and lab development": {
+                "Develop and continuously improve coaching session, webinar, and Dynatrace University content": ["# of sessions","# of videos", "# of University Content"],
+                "Deliver internal Technical Product Specialist training": ["# of training delivered", "% CSAT Score"],
+                "Partner with other teams to develop Dynatrace best practices": ["# of meetings participated in", "# of best practice guides", "# of topics developed"],
+                "Assist in building lab environments" : ["# of lab environments developed","# of others using labs","# of others participating in lab development"]    
+              },
+                "Product feedback (product, self-help, internal processes)": {
+                "Analyze chats/tickets": ["# of topics reviewed", "# of trends identified", "# of recommendations provided"],
+                "Develop content to help deflect chats": ["# of Answer bots developed", "# of TKBs created/edited", "# of articles written","#/% inc. of self-help","#/% dec. in chats"],
+                "Work with Product Management/R&D to improve product self-service": ["# of product enhancements requests/released","#/% increase of self-help","#/% decrease in chats"]
+              },
+                "D1 representative/evangelist (internal and external)": {
+                "Participate in cross-functional SWAT, Value Creation, etc. teams": ["# of meetings attended","# of groups represented in"],
+                "Author internal, corporate, and 3rdparty blog articles": ["# of articles published","# reads per article"],
+                "Develop and present at internal, corporate, and 3rdparty technical conferences": ["# of conferences attended","# of presentations shared"],
+                "TPS work and results are recognized by global team": ["# of internal meetings where TPS is highlighted","# of meetings where TPS is presenting on a global or cross-regional basis"]
+              },
+                "Recognition & impact": {
+                "Continue to expand technical knowledge and stay ahead of industry trends": ["# of advanced certs","# of advanced training courses completed"],
+                "Engage on ad-hoc customer meetings/coaching sessions/Q&A": ["# of customer meetings on SME topic, CSAT%"],
+                "Act as an escalation point":["# hours in chat outside of shift","# escalations handled"],
+                "Participate in internal process development and continuous improvement": ["# of new/improved processes","% time/efficiency improvement"]
+                }
+            }
+            window.onload = function() {
+              var subjectSel = document.getElementById("category");
+              var topicSel = document.getElementById("subcategory");
+              var chapterSel = document.getElementById("metric");
+              for (var x in subjectObject) {
+                subjectSel.options[subjectSel.options.length] = new Option(x, x);
+              }
+              subjectSel.onchange = function() {
+                //empty Chapters- and Topics- dropdowns
+                chapterSel.length = 1;
+                topicSel.length = 1;
+                //display correct values
+                for (var y in subjectObject[this.value]) {
+                  topicSel.options[topicSel.options.length] = new Option(y, y);
+                }
+              }
+              topicSel.onchange = function() {
+                //empty Chapters dropdown
+                chapterSel.length = 1;
+                //display correct values
+                var z = subjectObject[subjectSel.value][this.value];
+                for (var i = 0; i < z.length; i++) {
+                  chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+                }
+              }
+            }
+            </script>
+		<script>
+             function doit(){
+                var shortDocs = "<%= docs%>";
+                console.log(shortDocs);
+                
+            }
+        </script>
+
+	</head>
+    
+	<body>
+		<div id="content-container" ></div>
+			<div id="_bg__deletedocpage"  ></div>
+
+			<div id="frame_7"  >
+				<div id="profilename" >
+					Delete Document
+				</div>
+
+			</div>
+
+			<div id="frame"  >
+
+				<div id="___logo"  >
+
+					<div id="logo_dark_bg_default"  >
+
+						<div id="dynatrace_logo_rgb_cph_800x142px"  >
+
+							<div id="group"  >
+								<img src="images/shape.png" id="shape" />
+								<img src="images/shape_ek1.png" id="shape_ek1" />
+								<img src="images/shape_ek2.png" id="shape_ek2" />
+								<img src="images/shape_ek3.png" id="shape_ek3" />
+								<img src="images/shape_ek4.png" id="shape_ek4" />
+								<img src="images/shape_ek5.png" id="shape_ek5" />
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+			<form name="form1" id="form1" action="/deleteDocpage" method="POST" style="color:#1496FF">
+				Catagory: <select name="category" id="category" required="required">
+					<option value="" selected="selected">Select</option>
+				  </select>
+				  <br><br>
+				SubCatagory: <select name="subcategory" id="subcategory" required="required">
+					<option value="" selected="selected">Select</option>
+				  </select>
+				  <br><br>
+				Metric: <select name="metric" id="metric" required="required">
+					<option value="" selected="selected">Select</option>
+				  </select>
+				  <br><br>
+				Document: <select name="document" id="document" required="required">
+					<option value="" selected="selected">Select</option>
+				</select>
+				<br><br>
+				<button id="deleteButton" >Delete</button>
+			</form>
+
+	</body>
+</html>

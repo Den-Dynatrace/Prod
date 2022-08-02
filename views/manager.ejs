@@ -3,10 +3,19 @@
     <head>
         <meta http-equiv="content-type" content="text/html" charset="utf-8" />
         <title>profilepagemanager</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="" >
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <link rel="Stylesheet" href="stylesheets/profilepagemanager.css">
         <script src="https://secure.exportkit.com/cdn/js/ek_googlefonts.js?v=6"></script>
+        <script>
+            window.onload = function() {
+                var raw = "<%= elist%>";
+                let empList = raw.split(",");
+                var empSelect = document.getElementById("employee")
+                for(var x in empList){
+                    empSelect.options[empSelect.options.length] = new Option(empList[x], empList[x]);
+                }
+            }                  
+      </script>
     </head>
         <body>
             <div id ="content-container">
@@ -49,22 +58,25 @@
                     Employees:
                 </div>
                 <form name="employeeView" id="employeeslist_" action="/manager" method="POST" style="color: 1496FF; position:relative; top: 425px; left: 250px;">       
-                <script>
-                    window.onload = function() {
-                        var raw = "<%= managerList%>";
-                        let empList = raw.split(",");
-                        var empSelect = document.getElementById("employee")
-                        for(var x in empList){
-                            empSelect.options[empSelect.options.length] = new Option(empList[x], empList[x]);
-                        }
-                    }                  
-              </script>
             <select id="employee" name="employee" style="width: 500px;">
                 <option value="" selected="selected">Select</option>
             </select>
             
-            <button type="submit" style="left: 100px; top:-20px;">View Profile</button>
+            <button type="submit" style="left: 100px; top:-20px;">View Profile</button>         
+            <button type="submit" formaction="/mgmtAddDoc">add doc to employee</button>
             </form>
+            <div id = "frame_12">
+                <a id="deleteEmployeesButton" _par="" href="/deleteUserEntry">
+                    <div id="text">
+                        Delete Employees
+                    </div>
+                </a>
+            </div>
          </div>
+         <a id="logoutbutton_cls_a" _par="" href="/auth/signout">
+            <div id="log_out" >
+                 Log out
+            </div>
+        </a>
         </body>
 </html>

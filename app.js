@@ -14,6 +14,11 @@ var managerRouter = require('./routes/manager');
 var authRouter = require('./routes/auth');
 var logRouteRouter = require('./routes/logRoute');
 var newUserRouter = require('./routes/newUser');
+//var testRouter = require('./routes/test');
+var deleteUserEntryRouter = require('./routes/deleteUserEntry');
+var deleteDocRouter = require('./routes/deleteDoc');
+var mgmtAddDocRouter = require('./routes/mgmtAddDoc');
+
 
 var app = express();
 
@@ -23,7 +28,7 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -45,6 +50,10 @@ app.use('/manager', managerRouter);
 app.use('/auth', authRouter);
 app.use('/logRoute', logRouteRouter);
 app.use('/newUser', newUserRouter);
+//app.use('/test', testRouter);
+app.use('/deleteUserEntry', deleteUserEntryRouter);
+app.use('/deleteDoc', deleteDocRouter);
+app.use('/mgmtAddDoc', mgmtAddDocRouter);
 
 
 

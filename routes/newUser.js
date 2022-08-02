@@ -3,13 +3,13 @@ var router = express.Router();
 const {isAuthenticated, isMGMT} = require('../public/javascripts/utils.js')
 const fetch = require('../public/javascripts/fetch.js')
 const {mgmtList, newUser, employeeListUpdate, newManager} = require('../db_queries');
-const { raw } = require('express');
 
 const GRAPH_ME_ENDPOINT = process.env.GRAPH_API_ENDPOINT + "v1.0/me";
 var manager_id = ""
 
 /* GET login page */
-router.get('/', isAuthenticated, isMGMT, async function(req, res, next) {
+router.get('/',isAuthenticated,  async function(req, res, next) {
+    console.log("here")
     const userInfo = await fetch(GRAPH_ME_ENDPOINT, req.session.accessToken);
     GRAPH_MANAGER = GRAPH_ME_ENDPOINT + "/manager";
     const manager = await fetch(GRAPH_MANAGER, req.session.accessToken);

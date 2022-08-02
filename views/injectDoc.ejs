@@ -6,14 +6,14 @@
     <script>
     var subjectObject = {
         "Content and lab development": {
-        "Develop and continuously improve coaching session, webinar, and Dynatrace University content": ["# of sessions","# of training delivered", "% CSAT Score"],
+        "Develop and continuously improve coaching session, webinar, and Dynatrace University content": ["# of sessions","# of videos", "# of University Content"],
         "Deliver internal Technical Product Specialist training": ["# of training delivered", "% CSAT Score"],
         "Partner with other teams to develop Dynatrace best practices": ["# of meetings participated in", "# of best practice guides", "# of topics developed"],
         "Assist in building lab environments" : ["# of lab environments developed","# of others using labs","# of others participating in lab development"]    
       },
         "Product feedback (product, self-help, internal processes)": {
         "Analyze chats/tickets": ["# of topics reviewed", "# of trends identified", "# of recommendations provided"],
-        "Develop content to help deflect chats": ["# of Answer bots developed", "# of TKBs created/edited", "# of articles written","#/% inc. of self-help","#/% decrease in chats"],
+        "Develop content to help deflect chats": ["# of Answer bots developed", "# of TKBs created/edited", "# of articles written","#/% inc. of self-help","#/% dec. in chats"],
         "Work with Product Management/R&D to improve product self-service": ["# of product enhancements requests/released","#/% increase of self-help","#/% decrease in chats"]
       },
         "D1 representative/evangelist (internal and external)": {
@@ -56,8 +56,33 @@
       }
     }
     </script>
+
+<script type="text/javascript" src="https://js.live.net/v7.2/OneDrive.js"></script>
+
+<script type="text/javascript">
+function launchSaveToOneDrive(){
+    var odOptions = { 
+    clientId: "<%= clientID%>",
+    action: "save",
+    sourceInputElementId: "fileUploadControl",
+    sourceUri: "",
+    fileName: "",
+    openInNewWindow: true,
+    accountSwitchEnabled: true,
+    success: function(files) {
+      var urlSelect = document.getElementById("proof")
+          urlSelect.options[urlSelect.options.length] = new Option(files["value"][0]["webUrl"], files["value"][0]["webUrl"]);
+      },
+    progress: function(percent) { /* progress handler */ },
+    cancel: function() { console.log("canceled") },
+    error: function(error) { }};
+    OneDrive.save(odOptions);
+}
+</script>
+    
   </head>   
   <body>
+    <b></b>
   <div id="content-container"></div>
     <div id = "_bg__adddocumentpage"></div>
     <div id="frame"  >
@@ -88,25 +113,25 @@
 				Add a Document
 			</div>
 
-    <form name="form1" id="form1" action="/injectDoc" method="POST" style="color:#1496FF;">
-    Catagory: <select name="subject" id="subject">
+    <form name="form1" id="form1" action="/injectDoc/user" method="POST" style="color:#1496FF;">
+    Catagory: <select name="subject" id="subject" required="required">
         <option value="" selected="selected">Select</option>
       </select>
       <br><br>
-    SubCatagory: <select name="topic" id="topic">
+    SubCatagory: <select name="topic" id="topic" required="required">
         <option value="" selected="selected">Select</option>
       </select>
       <br><br>
-    Metric: <select name="chapter" id="chapter">
+    Metric: <select name="chapter" id="chapter" required="required">
         <option value="" selected="selected">Select</option>
       </select>
       <br><br>
         <div>
-            <label for="val">Quantity</label>
-            <input type="number" step="0.01" id="val" name="val">
+            <label for="val">Quantity</label >
+            <input type="number" step="0.01" id="val" name="val" required="required">
         </div>
         <br><br>
-       <div class="tech_tag" id="tech_tag">Technology Tag:
+       <div class="tech_tag" id="tech_tag" >Technology Tag:
             <select  id="tags" name="tags" >
             <option value="">Select</option>
             <option value="Azure">Azure</option>
@@ -115,21 +140,32 @@
             <option value="Docker">Docker</option>
             </select>
         </div>
+
         <br><br>
         <div>
-            <label for="Proof">Link to resource (preferably saved in onedrive)</label>
-            <input type="url" id="proof" name="proof">
-        </div>
-        <br><br>
-        <div>
-            <label for="Comment">Comments:</label></p>
+            <label for="Comment" id="CommentHeader">Comments:</label></p>
             <textarea id="Comment" name="Comment"rows="5" cols="60"></textarea>
         </div>
         <br><br>
-        <div>
-            <button type="submit" style="position:relative; top: 100px; left: 200px;">Submit</button>
-        </div>
-        <br><br>
+      
+      
+      <details id="summary">
+        <summary >Where to Save</summary>
+        <p>Please navigate to the D1 documents in OneDrive slect "SME Activities Proof Docs"<br> 
+          Then create a folder in you name and add the file to your folder.<br>
+          Additional folders may be creted to better organize files for specific SME Catagories</p>
+      </details>
+      <% if (!mgmt)  {%>
+        <button id="submit">Submit</button>
+      <% } else {%>
+        <textarea id="user" name="user" rows="1" cols="40"><%= user%></textarea>
+        <button id="submit" formaction="/injectDoc/mgmt">Submit</button>
+      <% }%>
+        <select id="proof" name="proof" required="required">Proof Link</select>
         </form>
-    </body>
+        <p>
+        <input id="fileUploadControl" name="fileUploadControl" type="file" />
+        <button onclick="launchSaveToOneDrive()" id="save">Save to OneDrive</button>
+      </p>
+       </body>
 </html>

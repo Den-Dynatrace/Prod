@@ -1,0 +1,84 @@
+ <!DOCTYPE html>
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" >
+     <head>
+         <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+         <title>deleteman_emppage</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <meta name="description" content="" >
+         <link rel="StyleSheet" href="/stylesheets/deleteman_emppage.css" />
+         <script src="https://secure.exportkit.com/cdn/js/ek_googlefonts.js?v=6"></script>
+         <script>
+            
+                var mgmtList = "<%= mgmt%>".split(",");
+                var empList = "<%= emps%>".split(",");
+                var subjectObject = {
+                    "Manager": mgmtList,
+                    "Employee": empList
+                }
+                window.onload = function() {
+                var typeSel = document.getElementById("ManagerEmployee");
+                var individualSel = document.getElementById("Individual");
+                for (var x in subjectObject) {
+                    typeSel.options[typeSel.options.length] = new Option(x, x);
+                 }
+                typeSel.onchange = function() {
+                    individualSel.length = 1;
+                    lists = subjectObject[this.value];
+                    for (var y in lists) {
+                        individualSel.options[individualSel.options.length] = new Option(lists[y], lists[y])
+                    }
+                }
+            }
+        </script>
+         
+     </head>
+     <body>
+         <div id="content-container" ></div>
+             <div id="_bg__deleteman_emppage"  ></div>
+ 
+             <div id="frame"  >
+ 
+                 <div id="___logo"  >
+ 
+                     <div id="logo_dark_bg_default"  >
+ 
+                         <div id="dynatrace_logo_rgb_cph_800x142px"  >
+ 
+                             <div id="group"  >
+                                 <img src="images/shape.png" id="shape" />
+                                 <img src="images/shape_ek1.png" id="shape_ek1" />
+                                 <img src="images/shape_ek2.png" id="shape_ek2" />
+                                 <img src="images/shape_ek3.png" id="shape_ek3" />
+                                 <img src="images/shape_ek4.png" id="shape_ek4" />
+                                 <img src="images/shape_ek5.png" id="shape_ek5" />
+ 
+                             </div>
+ 
+                         </div>
+ 
+                     </div>
+ 
+                 </div>
+ 
+             </div>
+ 
+             <form name="'form1" id="form1" action="/deleteUserEntry" method = "POST">
+                 Manager/Employee: <select name="ManagerEmployee" id="ManagerEmployee">
+                     <option value = "" id="ManagerEmployeeSelect" selected = "selected">Select</option>
+                 </select>
+                 <br><br>
+                 Individual: <select name="Individual" id="Individual">
+                     <option value = "" id="IndividualSelect" selected = "selected">Select</option>
+                 </select>
+                 <br><br>
+                 <div>
+                     <button type="submit" id="submit">Delete</button>
+                 </div>
+                 <br><br>
+             </form>
+             <div id="header">
+                 Delete an Employee or Manager
+             </div>
+ 
+     </body>
+ </html>

@@ -1,5 +1,5 @@
 /*
-	@name profilepagemanager
+	@name newuserpage
 */
 /* Only edit this if you know what you are doing! */
 body { margin: 0px; padding: 0px; font-family:"Arial"; overflow-x:hidden; }
@@ -10,74 +10,21 @@ img { position: absolute; display: block; margin: 0px; border: none; padding: 0p
 /* Only edit this if you know what you are doing! */
 div { position: absolute; }
 
-#content-container { display: block; position: relative; width: 100%; width: 100%; height: 1439px; overflow: hidden; display: block;  margin-left: auto; margin-right: auto;  }
+#content-container { display: block; position: absolute; width: 100%; width: 100%; height: 1395px; overflow: hidden; display: block;  margin-left: auto; margin-right: auto;  }
 
-#_bg__profilepagemanager {
+#_bg__newuserpage {
 	top: 0px;
 	left: 0px;
 	width: 100%;
-	height: 1439px;
+	height: 100%;
 	background:rgba(0,0,0,1);
 }
 
-#frame_12{
-	top:30px;
-	left: 38px;
-	width: 300px;
-	height: 75px;
-}
-
-#logoutbutton_cls_a{
-	top: 200px;
-	left: 200px;
-	width: 350px;
-	height: 100px;
-}
-
-#log_out{
-	top:90%;
-	left: 70%;
-	width: 350px;
-	height: 100px;
-	overflow: hidden;
-	font-size: 32px;
-	text-align: left;
-	line-height: 22px;
-	padding-top: 10px;
-	margin-top: -10px;
-	letter-spacing: 0.5px;
-	color:#1496FF;
-}
-
-#deleteEmployeesButton {
-	top: 13px;
-	left: 8px;
-	width: 300px;
-	height: 75px;
-	position: absolute;
-}
-
-#text{
-	top: 0px;
-	left: -5px;
-	width: 300px;
-	height: 75px;
-	overflow: hidden;
-	font-family: Roboto;
-	font-size: 32px;
-	text-align: center;
-	line-height: 22px;
-	padding-top: 10px;
-	margin-top: -10px;
-	letter-spacing: 0.5px;
-	color:#1496FF;
-}
-
-#profilename {
-	top: 167px;
-	left: 48px;
-	width: 751px;
-	height: 81px;
+#header{
+	top:50px;
+	left:200px;
+	width:1000px;
+	height: 200px;
 	overflow: hidden;
 	font-family: Roboto;
 	font-size: 64px;
@@ -89,12 +36,59 @@ div { position: absolute; }
 	color:#FFFFFF;
 }
 
+#frame_7 {
+	top: 157px;
+	left: 38px;
+	width: 1000px;
+	height: 75px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 20px;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
+
+#profilename {
+	top: 10px;
+	left: 10px;
+	width: 601px;
+	height: 67px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 64px;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 42px;
+	margin-top: -42px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
+
+#frame_6 {
+	top: 227px;
+	left: 38px;
+	width: 1000px;
+	height: 75px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 20px;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
 
 #position {
-	top: 237px;
-	left: 48px;
-	width: 605px;
-	height: 60px;
+	top: 10px;
+	left: 10px;
+	width: 442px;
+	height: 44px;
 	overflow: hidden;
 	font-family: Roboto;
 	font-size: 32px;
@@ -106,12 +100,27 @@ div { position: absolute; }
 	color:#FFFFFF;
 }
 
+#frame_8 {
+	top: 300px;
+	left: 38px;
+	width: 1000px;
+	height: 100px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 20px;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
 
 #location {
-	top: 287px;
-	left: 48px;
-	width: 600px;
-	height: 68px;
+	top: 10px;
+	left: 10px;
+	width: 301px;
+	height: 44px;
 	overflow: hidden;
 	font-family: Roboto;
 	font-size: 32px;
@@ -121,17 +130,34 @@ div { position: absolute; }
 	margin-top: -10px;
 	letter-spacing: 0.5px;
 	color:#FFFFFF;
+}
+
+#submitbutton{
+	position:fixed;
+	top:600px;
+	left:38px;
+	width:150px;
+	height:75px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 25px;
+	text-align: center;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#000000;
 }
 
 #frame {
 	top: 26px;
 	left: 1327px;
-	width: 77px;
-	height: 74px;
+	width: 76.23px;
+	height: 74.18px;
 }
 #___logo {
-	top: 0.5px;
-	left: 0.53px;
+	top: 1px;
+	left: 1px;
 	width: 74.23px;
 	height: 72.18px;
 }
@@ -201,118 +227,52 @@ div { position: absolute; }
 	height: 64.64px;
 }
 
+#frame_9 {
+	top: 375px;
+	left: 38px;
+	width: 1000px;
+	height: 100px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 20px;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
+
+#frame_10{
+	top: 450px;
+	left: 38px;
+	width: 1000px;
+	height:100px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 20px;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
 
 #languages__english__spanish__german {
-	top: 333px;
-	left: 48px;
-	width: 718px;
-	height: 66px;
-	overflow: hidden;
-	font-family: Roboto;
-	font-size: 32px;
-	text-align: left;
-	line-height: 22px;
-	padding-top: 10px;
-	margin-top: -10px;
-	letter-spacing: 0.5px;
-	color:#FFFFFF;
-}
-
-
-#certifications__aws__azure {
-	top: 377px;
-	left: 48px;
-	width: 593px;
-	height: 64px;
-	overflow: hidden;
-	font-family: Roboto;
-	font-size: 32px;
-	text-align: left;
-	line-height: 22px;
-	padding-top: 10px;
-	margin-top: -10px;
-	letter-spacing: 0.5px;
-	color:#FFFFFF;
-}
-
-
-#employees_ {
-	top: 420px;
-	left: 50px;
-	width: 272px;
-	height: 60px;
-	overflow: hidden;
-	font-family: Roboto;
-	font-size: 32px;
-	text-align: left;
-	line-height: 22px;
-	padding-top: 18px;
-	margin-top: -18px;
-	letter-spacing: 0.5px;
-	color:#FFFFFF;
-}
-
-#creatorbutton_cls_a {
-	top: 637px;
-	left: 0px;
-	width: 577px;
-	height: 56px;
-	position: absolute;
-}
-
-#rectangle_5 {
-	top: 0px;
-	left: 0px;
-	width: 577px;
-	height: 56px;
-	background:rgba(0,0,0,1);
-}
-
-
-#made_by__johnny_appleseed {
-	top: 14px;
-	left: 39px;
-	width: 458px;
-	height: 50px;
-	overflow: hidden;
-	font-family: Roboto;
-	font-size: 32px;
-	text-align: left;
-	line-height: 22px;
-	padding-top: 10px;
-	margin-top: -10px;
-	letter-spacing: 0.5px;
-	color:#FFFFFF;
-}
-
-#editbutton {
-	top: 419px;
-	left: 887px;
-	width: 177px;
-	height: 48px;
-}
-#editbutton_ek1_cls_a {
-	top: 432px;
-	left: 895px;
-	width: 161px;
-	height: 22px;
-	position: absolute;
-}
-
-#edit {
-	top: 0px;
-	left: -5px;
-	width: 182px;
+	top: 10px;
+	left: 10px;
+	width: 586px;
 	height: 44px;
 	overflow: hidden;
 	font-family: Roboto;
 	font-size: 32px;
-	text-align: center;
+	text-align: left;
 	line-height: 22px;
 	padding-top: 10px;
 	margin-top: -10px;
 	letter-spacing: 0.5px;
-	color:#1496FF;
+	color:#FFFFFF;
 }
 
 
