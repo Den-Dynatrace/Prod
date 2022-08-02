@@ -23,7 +23,7 @@ router.get('/',isAuthenticated, isMGMT, async function(req, res) {
   let evangelTot = 0;
   let recogTot = 0;
   
-  console.log(user[0])
+  
   id = await empID(user[0])
   if(id.length > 0){
     //double check that manager hasnt been updated
