@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const {isAuthenticated, mgmtCheck} = require('../public/javascripts/utils.js')
-const {listAllDocs} = require('../db_queries.js');
+const {listAllDocs, deleteDocument} = require('../db_queries.js');
 
 
 /* GET users listing. */
@@ -11,7 +11,7 @@ router.get('/', isAuthenticated, async function(req, res, next) {
     var docs = await listAllDocs(user);
     shortDocs = []
     for(e in docs){
-        shortDocs.push(docs[e]["metric"] + '|' + docs[e]["Proof"]);
+        shortDocs.push(docs[e]["metric"] + '|' + docs[e]["_id"]);
     }
 
     res.render("deleteDoc", {docs: shortDocs});
@@ -19,8 +19,12 @@ router.get('/', isAuthenticated, async function(req, res, next) {
 });
 
 
-router.post('/', function(req, res, next){
-    pass
+router.post('/', isAuthenticated, async function(req, res, next){
+    id = req.body.document;
+    console.log(id);
+    var user = tokenClaims.preferred_username.split("@")[0]
+    await deleteDocument(user, id);
+    res.redirect('profile');
 })
 
 

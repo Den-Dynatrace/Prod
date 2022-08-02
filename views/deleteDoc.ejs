@@ -34,9 +34,13 @@
                 }
             }
             window.onload = function() {
+              var shortDocs = "<%= docs%>";
+              var docArray = shortDocs.split(",");
+              console.log(docArray);
               var subjectSel = document.getElementById("category");
               var topicSel = document.getElementById("subcategory");
               var chapterSel = document.getElementById("metric");
+              var documentSel = document.getElementById("document");
               for (var x in subjectObject) {
                 subjectSel.options[subjectSel.options.length] = new Option(x, x);
               }
@@ -44,6 +48,7 @@
                 //empty Chapters- and Topics- dropdowns
                 chapterSel.length = 1;
                 topicSel.length = 1;
+                documentSel.length = 1;
                 //display correct values
                 for (var y in subjectObject[this.value]) {
                   topicSel.options[topicSel.options.length] = new Option(y, y);
@@ -52,22 +57,28 @@
               topicSel.onchange = function() {
                 //empty Chapters dropdown
                 chapterSel.length = 1;
+                documentSel.length =1;
                 //display correct values
                 var z = subjectObject[subjectSel.value][this.value];
+                //console.log(this.value);
                 for (var i = 0; i < z.length; i++) {
                   chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
                 }
               }
+              chapterSel.onchange = function() {
+                //empty document select
+                documentSel.length = 1;
+                var metric = this.value;
+                //console.log(this.value);
+                for(doc in docArray) {
+                  if (docArray[doc].includes(metric)){
+                    linkArray = docArray[doc].split("|");
+                    documentSel.options[documentSel.options.length] = new Option(linkArray[1], linkArray[1]);
+                  }
+                }
+              }
             }
-            </script>
-		<script>
-             function doit(){
-                var shortDocs = "<%= docs%>";
-                console.log(shortDocs);
-                
-            }
-        </script>
-
+      </script>
 	</head>
     
 	<body>
@@ -106,7 +117,7 @@
 				</div>
 
 			</div>
-			<form name="form1" id="form1" action="/deleteDocpage" method="POST" style="color:#1496FF">
+			<form name="form1" id="form1" action="/deleteDoc" method="POST" style="color:#1496FF">
 				Catagory: <select name="category" id="category" required="required">
 					<option value="" selected="selected">Select</option>
 				  </select>
@@ -123,7 +134,7 @@
 					<option value="" selected="selected">Select</option>
 				</select>
 				<br><br>
-				<button id="deleteButton" >Delete</button>
+				<button id="deleteButton" type="submit" >Delete</button>
 			</form>
 
 	</body>

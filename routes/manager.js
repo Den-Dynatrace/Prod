@@ -31,7 +31,7 @@ router.post('/',isAuthenticated, async function(req, res, next){
   let recogTot = 0;
   let user = req.body.employee.toLowerCase();
   //console.log(user)
-  if(user){
+ 
     id = await empID(user)
     if(id.length > 0){
       for (let query in queries) {
@@ -96,11 +96,7 @@ router.post('/',isAuthenticated, async function(req, res, next){
                       else{
                         //flash nothing to display
                         res.redirect("manager")
-                      }
-                    }
-                    else{
-                      res.redirect("manager")
-                    }  
+                      }  
 });
 
 module.exports = router;

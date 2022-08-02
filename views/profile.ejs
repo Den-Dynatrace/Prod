@@ -15,11 +15,16 @@
 					div.removeChild(oldTable);
 				}
 				var popupText = document.createElement("ul");
-				var linkAray = links.split(",")
+				var linkAray = links.split("|")
+				console.log(linkAray)
 				for(link in linkAray){
-					let li = document.createElement("li");
-					li.innerHTML = '<a href="'+linkAray[link]+'" target="_blank">'+linkAray[link]+'</a>';
-					popupText.appendChild(li);
+					if((link % 2) != 0){
+						//console.log(Number(link)+1)
+						//console.log(linkAray[Number(link)+1])
+						let li = document.createElement("li");
+						li.innerHTML = "<a href='"+ linkAray[Number(link)+1]+"' target='_blank'>"+linkAray[link]+"</a>";
+						popupText.appendChild(li);
+					}
 				}
 				div.appendChild(popupText);
 			}
@@ -1249,7 +1254,11 @@
 						<div id="edit" >
 							Add Document
 						</div>
-
+					</a>
+					<a id="deletebutton_ek1_cls_a"  _par="" href="/deleteDoc" >
+						<div id="delete" >
+							Delete Document
+						</div>
 					</a>
 
 				</div>

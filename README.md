@@ -1,2 +1,2 @@
-# Dev
-Development environment utilizing Erik's personal Azure account
+# Prod
+SME Tracker Tool Dynatrace tools

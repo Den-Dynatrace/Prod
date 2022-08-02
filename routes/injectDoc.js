@@ -13,21 +13,23 @@ router.get('/', isAuthenticated, isMGMT, function(req, res, next) {
 router.post('/user', async function (req, res, next) {
   tokenClaims = req.session.account.idTokenClaims;
   var user = tokenClaims.preferred_username.split("@")
+  var id = await req.body.id;
   var overall = await req.body.subject;
   var subcat = await req.body.topic;
   var metric = await req.body.chapter;
   var tag = req.body.tags;
   var proof = await req.body.proof;
-  console.log(proof)
   var notes = await req.body.Comment
   doc = {
+    "_id" : id,
     "Overall" : overall,
     "Sub-Cat" : subcat,
     "metric" : metric,
     "value" : req.body.val,
     "Proof" : proof,
     "Notes" : notes,
-    "Tag" : tag
+    "Tag" : tag,
+    "Date" : Date()
     }
     //console.log(doc)
     inject(user[0], doc)
@@ -38,7 +40,7 @@ router.post('/user', async function (req, res, next) {
   router.post('/mgmt', async function (req, res, next) {
     
     var user = await req.body.user;
-    console.log(user)
+    var id = await req.body.id;
     var overall = await req.body.subject;
     var subcat = await req.body.topic;
     var metric = await req.body.chapter;
@@ -47,13 +49,15 @@ router.post('/user', async function (req, res, next) {
     console.log(proof)
     var notes = await req.body.Comment
     doc = {
+      "_id" : id,
       "Overall" : overall,
       "Sub-Cat" : subcat,
       "metric" : metric,
       "value" : req.body.val,
       "Proof" : proof,
       "Notes" : notes,
-      "Tag" : tag
+      "Tag" : tag,
+      "Date" : Date()
       }
       //console.log(doc)
       inject(user, doc)

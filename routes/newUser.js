@@ -40,7 +40,7 @@ router.get('/',isAuthenticated,  async function(req, res, next) {
     
   });
   
-  router.post('/', async function(req,res, next){
+  router.post('/', isAuthenticated, async function(req,res, next){
     const userInfo = await fetch(GRAPH_ME_ENDPOINT, req.session.accessToken);
     id = userInfo.mail.split("@")
     console.log(id[0])

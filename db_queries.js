@@ -93,7 +93,7 @@ async function numberQuery(query, user){
 //SIMPLE QUERY//
 return new Promise(function(resolve, reject) {
   var sum = 0;
-  var result = []
+  var result = ""
   const connect = client.db("SME_Tracker")
   connect.collection(user).find(query).toArray( async function(err, docs) {
    if (err) {
@@ -102,11 +102,12 @@ return new Promise(function(resolve, reject) {
    }
    for(entries in docs){
     sum += Number(docs[entries]["value"]);
-    result.push(docs[entries]["Proof"]);
+    result = result + "|" + docs[entries]["_id"] + "|";
+    result = result + docs[entries]["Proof"];
    }
-   result = [sum].concat(result)
+   final = [sum].concat([result])
    //console.log(result)
-   return await resolve(result)
+   return await resolve(final)
  })
 })
 }
@@ -223,6 +224,15 @@ function listAllDocs(user) {
   })
 }
 
+function deleteDocument(user, id) {
+  return new Promise(function(resolve, reject){
+    const connect = client.db("SME_Tracker");
+    connect.collection(user).deleteOne({_id: id}, function(err){
+      if (err) return reject(err);
+      return resolve(true);
+    })
+  })
+}
 
 module.exports = {
 numberQuery,
@@ -238,5 +248,6 @@ removeEmp,
 getCollections,
 mgmtDelete, 
 dropEmp,
-listAllDocs
+listAllDocs,
+deleteDocument
 };
