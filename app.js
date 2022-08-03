@@ -37,7 +37,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-      secure: true, // set this to true on production
+      secure: false, // set this to true on production
   }
 }));
 
