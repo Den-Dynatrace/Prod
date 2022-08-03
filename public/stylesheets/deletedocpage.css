@@ -20,6 +20,10 @@ div { position: absolute; }
 	background:rgba(0,0,0,1);
 }
 
+#user{
+	visibility:hidden;
+}
+
 #frame_7 {
 	top: 100px;
 	left: 444px;

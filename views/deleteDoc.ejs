@@ -134,7 +134,12 @@
 					<option value="" selected="selected">Select</option>
 				</select>
 				<br><br>
-				<button id="deleteButton" type="submit" >Delete</button>
+        <% if (!mgmt)  {%>
+          <button id="deleteButton" type="submit" >Delete</button>
+        <% } else {%>
+          <textarea id="user" name="user" rows="1" cols="40"><%= user%></textarea>
+          <button id="deleteButton" formaction="/deleteDoc/mgmt">Submit</button>
+        <% }%>
 			</form>
 
 	</body>
