@@ -109,7 +109,7 @@ router.get('/signin', async function (req, res, next) {
 router.get('/acquireToken', async function (req, res, next) {
 
     // create a GUID for csrf
-    req.session.csrfToken = cryptoProvider.createNewGuid();
+    //req.session.csrfToken = cryptoProvider.createNewGuid();
 
     // encode the state param
     const state = cryptoProvider.base64Encode(
@@ -137,7 +137,7 @@ router.post('/redirect', async function (req, res, next) {
         const state = JSON.parse(cryptoProvider.base64Decode(req.body.state));
 
         // check if csrfToken matches
-        if (state.csrfToken === req.session.csrfToken) {
+        //if (state.csrfToken === req.session.csrfToken) {
             req.session.authCodeRequest.code = req.body.code; // authZ code
             req.session.authCodeRequest.codeVerifier = req.session.pkceCodes.verifier // PKCE Code Verifier
 
@@ -152,9 +152,9 @@ router.post('/redirect', async function (req, res, next) {
             } catch (error) {
                 next(error);
             }
-        } else {
-            next(new Error('csrf token does not match'));
-        }
+        //} else {
+        //    next(new Error('csrf token does not match'));
+        //}
     } else {
         next(new Error('state is missing'));
     }
