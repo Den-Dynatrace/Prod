@@ -7,7 +7,7 @@ const {listAllDocs, deleteDocument} = require('../db_queries.js');
 /* GET users listing. */
 router.get('/', isAuthenticated, async function(req, res, next) {
     tokenClaims = req.session.account.idTokenClaims;
-    var user = tokenClaims.preferred_username.split("@")[0]
+    var user = tokenClaims.preferred_username.split("@")[0].toLowerCase();
     var docs = await listAllDocs(user);
     shortDocs = []
     for(e in docs){
@@ -22,7 +22,7 @@ router.get('/', isAuthenticated, async function(req, res, next) {
 router.post('/', isAuthenticated, async function(req, res, next){
     id = req.body.document;
     console.log(id);
-    var user = tokenClaims.preferred_username.split("@")[0]
+    var user = tokenClaims.preferred_username.split("@")[0].toLowerCase()
     await deleteDocument(user, id);
     res.redirect('profile');
 })

@@ -12,7 +12,7 @@ express.static(path.join(__dirname, 'public'));
 /* GET manager page */
 router.get('/', isAuthenticated, mgmtCheck, async function(req, res, next) {
   tokenClaims = req.session.account.idTokenClaims;
-  var manager = tokenClaims.preferred_username;
+  var manager = tokenClaims.preferred_username.toLowerCase();
   //console.log(manager)
   var managerCard = await employeeNames(manager)
   res.render('manager', { name : managerCard["name"],

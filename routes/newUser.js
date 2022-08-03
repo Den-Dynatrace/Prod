@@ -8,12 +8,12 @@ const GRAPH_ME_ENDPOINT = process.env.GRAPH_API_ENDPOINT + "v1.0/me";
 var manager_id = ""
 
 /* GET login page */
-router.get('/',isAuthenticated,  async function(req, res, next) {
+router.get('/',isAuthenticated,  async function(req, res) {
     //console.log("here")
     const userInfo = await fetch(GRAPH_ME_ENDPOINT, req.session.accessToken);
     GRAPH_MANAGER = GRAPH_ME_ENDPOINT + "/manager";
     const manager = await fetch(GRAPH_MANAGER, req.session.accessToken);
-    manager_id = manager.mail;
+    manager_id = manager.mail.toLowerCase();
     
     if(userInfo.jobTitle.includes("Manager")){
         await newManager(userInfo)

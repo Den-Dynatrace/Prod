@@ -10,10 +10,10 @@ const GRAPH_ME_ENDPOINT = process.env.GRAPH_API_ENDPOINT + "v1.0/me";
 /* GET profile page. */
 router.get('/',isAuthenticated, isMGMT, async function(req, res) {
   tokenClaims = req.session.account.idTokenClaims;
-  var user = tokenClaims.preferred_username.split("@")
+  var user = tokenClaims.preferred_username.split("@").toLowerCase();
   GRAPH_MANAGER = GRAPH_ME_ENDPOINT + "/manager";
   const manager = await fetch(GRAPH_MANAGER, req.session.accessToken);
-  let manager_id = manager.mail;
+  let manager_id = manager.mail.toLowerCase();
   
   //Variables for totals 
   let results =[];
@@ -27,7 +27,7 @@ router.get('/',isAuthenticated, isMGMT, async function(req, res) {
   id = await empID(user[0])
   if(id.length > 0){
     //double check that manager hasnt been updated
-    if (id[0].manager != manager_id){
+    if (id[0].manager.toLowerCase() != manager_id){
       await removeEmp(id[0].manager, user[0]);
       await managagerUpdate(user[0], manager_id);
       let mgmList = [];
