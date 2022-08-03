@@ -67,7 +67,7 @@ async function redirectToAuthCodeUrl(req, res, next, authCodeUrlRequestParams, a
 };
 
 router.get('/signin', async function (req, res, next) {
-    host = "https://" +req.get('host');
+    host = "http://" +req.get('host');
     REDIRECT_URI = host + REDIRECT_URI;
 
     // create a GUID for crsf
@@ -111,7 +111,7 @@ router.get('/signin', async function (req, res, next) {
 router.get('/acquireToken', async function (req, res, next) {
 
     // create a GUID for csrf
-    req.session.csrfToken = cryptoProvider.createNewGuid();
+    //req.session.csrfToken = cryptoProvider.createNewGuid();
 
     // encode the state param
     const state = cryptoProvider.base64Encode(
@@ -163,7 +163,7 @@ router.post('/redirect', async function (req, res, next) {
 });
 
 router.get('/signout', function (req, res) {
-    host = "https://" +req.get('host');
+    host = "http://" +req.get('host');
     /**
      * Construct a logout URI and redirect the user to end the
      * session with Azure AD. For more information, visit:
