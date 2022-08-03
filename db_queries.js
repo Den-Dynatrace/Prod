@@ -172,7 +172,6 @@ async function newManager(manager){
     "name": manager.displayName,
     "location": manager.officeLocation,
     "Title": manager.jobTitle,
-    "Employees" : []
   }
   return new Promise(function(resolve, reject){
     client.connect(err => {

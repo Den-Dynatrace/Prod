@@ -12,13 +12,17 @@ express.static(path.join(__dirname, 'public'));
 /* GET manager page */
 router.get('/', isAuthenticated, mgmtCheck, async function(req, res, next) {
   tokenClaims = req.session.account.idTokenClaims;
-  var manager = tokenClaims.preferred_username.toLowerCase();
-  //console.log(manager)
-  var managerCard = await employeeNames(manager)
+  var directReports = fetch(GRAPH_DIRECT_REPORTS, req.session.accessToken)
+  var emps = directReports["value"]
+  let empIDs = []
+  for(e in emps){
+    id = emps[e]["mail"].split("@")[0].toLowerCase();
+    empID.push(id);
+  }
   res.render('manager', { name : managerCard["name"],
                           email : managerCard["_id"],
                           title : managerCard["Title"],
-                          elist: managerCard["Employees"]})
+                          elist: empIDs})
 });
 
 

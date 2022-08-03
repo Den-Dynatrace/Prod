@@ -28,14 +28,17 @@ router.get('/',isAuthenticated,  async function(req, res) {
         var employees = directReportResponse["value"];
         var newMGMTID = userInfo.mail.toLowerCase();
         for(e in employees) {
+            try{
             await newUser(employees[e], newMGMTID );
-            let empID = employees[e]["mail"].split('@')[0].toLowerCase();
-            await employeeListUpdate(newMGMTID, empID );
-        }
+            }
+            catch{
+                continue
+            }
+            }
         res.redirect("manager")
-    }
-    else if(!mgmList.includes(manager_id)){
-        await newManager(manager);
+    
+    }else if(!mgmList.includes(manager_id)){
+            await newManager(manager);
     }
 
     
@@ -49,13 +52,10 @@ router.get('/',isAuthenticated,  async function(req, res) {
   
   router.post('/', isAuthenticated, async function(req,res, next){
     const userInfo = await fetch(GRAPH_ME_ENDPOINT, req.session.accessToken);
-    id = userInfo.mail.split("@")
-    console.log(id[0].toLowerCase())
-    if( await employeeListUpdate(manager_id, id[0].toLowerCase())){
         if(await newUser(userInfo, manager_id)){
             res.redirect("profile")
-            }
         }
+        
   })
   
   module.exports = router;
