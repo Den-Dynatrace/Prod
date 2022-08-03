@@ -29,7 +29,6 @@ router.get('/',isAuthenticated, isMGMT, async function(req, res) {
   if(id.length > 0){
     //double check that manager hasnt been updated
     if (id[0].manager.toLowerCase() != manager_id){
-      await removeEmp(id[0].manager, user);
       await managagerUpdate(user, manager_id);
       let mgmList = [];
       const raw = await mgmtList();
@@ -39,10 +38,6 @@ router.get('/',isAuthenticated, isMGMT, async function(req, res) {
       if(!mgmList.includes(manager_id)){
           await newManager(manager);
       }
-
-      await employeeListUpdate(manager_id, user);
-
-
     }
     
     

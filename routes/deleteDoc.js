@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const {isAuthenticated, mgmtCheck} = require('../public/javascripts/utils.js')
+const {isAuthenticated} = require('../public/javascripts/utils.js')
 const {listAllDocs, deleteDocument} = require('../db_queries.js');
 
 
