@@ -14,7 +14,7 @@ router.get('/', isAuthenticated, async function(req, res, next) {
         shortDocs.push(docs[e]["metric"] + '|' + docs[e]["_id"]);
     }
 
-    res.render("deleteDoc", {docs: shortDocs});
+    res.render("deleteDoc", {docs: shortDocs, mgmt:false, user:user});
     
 });
 
@@ -25,6 +25,15 @@ router.post('/', isAuthenticated, async function(req, res, next){
     var user = tokenClaims.preferred_username.split("@")[0].toLowerCase()
     await deleteDocument(user, id);
     res.redirect('profile');
+})
+
+
+router.post('/mgmt', isAuthenticated, async function(req, res, next){
+    id = req.body.document;
+    user = req.body.user;
+    //console.log(id);
+    await deleteDocument(user, id);
+    res.redirect('/manager');
 })
 
 
