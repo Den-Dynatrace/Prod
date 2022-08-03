@@ -17,7 +17,7 @@ router.get('/', isAuthenticated, mgmtCheck, async function(req, res, next) {
   let empIDs = []
   for(e in emps){
     id = emps[e]["mail"].split("@")[0].toLowerCase();
-    empID.push(id);
+    empIDs.push(id);
   }
   res.render('manager', { name : managerCard["name"],
                           email : managerCard["_id"],
