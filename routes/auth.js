@@ -12,6 +12,8 @@ var {
     POST_LOGOUT_REDIRECT_URI
 } = require('../authConfig');
 
+var REDIRECT = "";
+
 const router = express.Router();
 const msalInstance = new msal.ConfidentialClientApplication(msalConfig);
 const cryptoProvider = new msal.CryptoProvider();
@@ -44,7 +46,7 @@ async function redirectToAuthCodeUrl(req, res, next, authCodeUrlRequestParams, a
      **/
 
     req.session.authCodeUrlRequest = {
-        redirectUri: REDIRECT_URI,
+        redirectUri: REDIRECT,
         responseMode: 'form_post', // recommended for confidential clients
         codeChallenge: req.session.pkceCodes.challenge,
         codeChallengeMethod: req.session.pkceCodes.challengeMethod,
@@ -52,7 +54,7 @@ async function redirectToAuthCodeUrl(req, res, next, authCodeUrlRequestParams, a
     };
 
     req.session.authCodeRequest = {
-        redirectUri: REDIRECT_URI,
+        redirectUri: REDIRECT,
         code: "",
         ...authCodeRequestParams,
     };
@@ -68,7 +70,7 @@ async function redirectToAuthCodeUrl(req, res, next, authCodeUrlRequestParams, a
 
 router.get('/signin', async function (req, res, next) {
     host = "https://" +req.get('host');
-    REDIRECT_URI = host + REDIRECT_URI;
+    REDIRECT = host + REDIRECT_URI;
 
     // create a GUID for crsf
     req.session.csrfToken = cryptoProvider.createNewGuid();
@@ -163,14 +165,15 @@ router.post('/redirect', async function (req, res, next) {
 });
 
 router.get('/signout', function (req, res) {
+    
     host = "https://" +req.get('host');
     /**
      * Construct a logout URI and redirect the user to end the
      * session with Azure AD. For more information, visit:
      * https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc#send-a-sign-out-request
      */
-     POST_LOGOUT_REDIRECT_URI = host + POST_LOGOUT_REDIRECT_URI;
-    const logoutUri = `${msalConfig.auth.authority}/oauth2/v2.0/logout?post_logout_redirect_uri=${POST_LOGOUT_REDIRECT_URI}`;
+    var POST_LOGOUT_REDIRECT = host + POST_LOGOUT_REDIRECT_URI;
+    const logoutUri = `${msalConfig.auth.authority}/oauth2/v2.0/logout?post_logout_redirect_uri=${POST_LOGOUT_REDIRECT}`;
 
     req.session.destroy(() => {
         res.redirect(logoutUri);
