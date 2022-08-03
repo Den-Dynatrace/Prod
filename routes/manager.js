@@ -3,6 +3,7 @@ var router = express.Router();
 const path = require('path');
 const {employeeNames,empID,numberQuery} = require("../db_queries");
 var queries = require('../individual.js');
+const fetch = require('../public/javascripts/fetch.js')
 const {isAuthenticated, mgmtCheck} = require("../public/javascripts/utils")
 express.static(path.join(__dirname, 'public'));
 
