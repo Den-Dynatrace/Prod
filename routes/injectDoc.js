@@ -12,7 +12,7 @@ router.get('/', isAuthenticated, isMGMT, function(req, res, next) {
 
 router.post('/user', async function (req, res, next) {
   tokenClaims = req.session.account.idTokenClaims;
-  var user = tokenClaims.preferred_username.split("@").toLowerCase();
+  var user = tokenClaims.preferred_username.split("@")[0].toLowerCase();
   var id = await req.body.id;
   var overall = await req.body.subject;
   var subcat = await req.body.topic;
