@@ -32,7 +32,7 @@ router.post('/user', async function (req, res, next) {
     "Date" : Date()
     }
     //console.log(doc)
-    inject(user[0], doc)
+    inject(user, doc)
     res.redirect('/profile')
   })
 
