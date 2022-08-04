@@ -2,14 +2,15 @@ var express = require('express');
 var router = express.Router();
 const {isAuthenticated} = require('../public/javascripts/utils.js')
 const fetch = require('../public/javascripts/fetch.js')
-const {mgmtList, newUser, employeeListUpdate, newManager} = require('../db_queries');
+const {mgmtList, newUser, getCollections, newManager} = require('../db_queries');
 
 const GRAPH_ME_ENDPOINT = process.env.GRAPH_API_ENDPOINT + "v1.0/me";
 var manager_id = ""
 
-/* GET login page */
+
 router.get('/',isAuthenticated,  async function(req, res) {
     //console.log("here")
+    const curentEmpList = await getCollections();
     const userInfo = await fetch(GRAPH_ME_ENDPOINT, req.session.accessToken);
     GRAPH_MANAGER = GRAPH_ME_ENDPOINT + "/manager";
     const manager = await fetch(GRAPH_MANAGER, req.session.accessToken);
@@ -28,13 +29,10 @@ router.get('/',isAuthenticated,  async function(req, res) {
         var employees = directReportResponse["value"];
         var newMGMTID = userInfo.mail.toLowerCase();
         for(e in employees) {
-            try{
-            await newUser(employees[e], newMGMTID );
+            if(curentEmpList.indexOf(id) < 0){
+                await newUser(employees[e], newMGMTID );
             }
-            catch{
-                continue
-            }
-            }
+        }
         res.redirect("manager")
     
     }else if(!mgmList.includes(manager_id)){
