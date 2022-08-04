@@ -126,7 +126,7 @@ div { position: absolute; }
 
 
 #comments_ {
-	top: 774px;
+	top: 800px;
 	left: 63px;
 	width: 257px;
 	height: 55px;
@@ -284,7 +284,7 @@ div { position: absolute; }
 
 #fileUploadControl{
 	position:fixed;
-	top:380px;
+	top:405px;
 	left:450px;
 	width:250px;
 	overflow: hidden;
@@ -308,7 +308,7 @@ div { position: absolute; }
 
 #CommentHeader{
 	position:fixed;
-	top: 450px;
+	top: 475px;
 	left: auto;
 }
 
@@ -320,19 +320,19 @@ div { position: absolute; }
 
 #save{
 	position:fixed;
-	top:420px;
+	top:445px;
 	left:450px;
 }
 
 #summary{
 	position:fixed;
-	top:385px;
+	top:410px;
 	left:725px;
 }
 
 #Comment{
 	position:fixed;
-	top:490px;
+	top:515px;
 }
 
 #rectangle_19_ek1 {
