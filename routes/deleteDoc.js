@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-const {isAuthenticated} = require('../public/javascripts/utils.js')
-const {listAllDocs, deleteDocument} = require('../db_queries.js');
-
+const {isAuthenticated, delDoc} = require('../public/javascripts/utils.js')
+const {listAllDocs, getDoc, deleteDocument} = require('../db_queries.js');
+var apiString = process.env.GRAPH_API_ENDPOINT + "v1.0/drives/" + process.env.DRIVE_ID + "/items/";
 
 /* GET users listing. */
 router.get('/', isAuthenticated, async function(req, res, next) {
@@ -21,8 +21,11 @@ router.get('/', isAuthenticated, async function(req, res, next) {
 
 router.post('/', isAuthenticated, async function(req, res, next){
     id = req.body.document;
-    console.log(id);
     var user = tokenClaims.preferred_username.split("@")[0].toLowerCase()
+    documentToDel = await getDoc(user, id);
+    delString = apiString + documentToDel.DriveID;
+    token = req.session.accessToken
+    await delDoc(delString, token)
     await deleteDocument(user, id);
     res.redirect('profile');
 })
@@ -31,7 +34,10 @@ router.post('/', isAuthenticated, async function(req, res, next){
 router.post('/mgmt', isAuthenticated, async function(req, res, next){
     id = req.body.document;
     user = req.body.user;
-    //console.log(id);
+    documentToDel = await getDoc(user, id);
+    delString = apiString + documentToDel.DriveID;
+    token = req.session.accessToken
+    await delDoc(delString, token)
     await deleteDocument(user, id);
     res.redirect('/manager');
 })

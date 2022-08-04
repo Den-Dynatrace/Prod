@@ -233,6 +233,16 @@ function deleteDocument(user, id) {
   })
 }
 
+function getDoc(user, docID){
+  return new Promise(function(resolve, reject){
+    const connect = client.db("SME_Tracker");
+    connect.collection(user).find({_id:docID}).toArray(function(err, doc){
+      if(err) return reject(err);
+      return resolve(doc[0]); //Return just the JSON doc
+    
+    });
+  })
+}
 module.exports = {
 numberQuery,
 empID,
@@ -248,5 +258,6 @@ getCollections,
 mgmtDelete, 
 dropEmp,
 listAllDocs,
-deleteDocument
+deleteDocument,
+getDoc
 };

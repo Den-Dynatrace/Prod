@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var bodyParser = require('body-parser');
 const {inject} = require('../db_queries.js');
 const {isAuthenticated, isMGMT} = require('../public/javascripts/utils.js')
 
@@ -17,8 +16,10 @@ router.post('/user', async function (req, res, next) {
   var overall = await req.body.subject;
   var subcat = await req.body.topic;
   var metric = await req.body.chapter;
-  var tag = req.body.tags;
-  var proof = await req.body.proof;
+  var tag = await req.body.tags;
+  var id_proof = await req.body.proof.split("|");
+  var proof = id_proof[1];
+  var driveID = id_proof[0];
   var notes = await req.body.Comment
   doc = {
     "_id" : id,
@@ -27,6 +28,7 @@ router.post('/user', async function (req, res, next) {
     "metric" : metric,
     "value" : req.body.val,
     "Proof" : proof,
+    "DriveID": driveID,
     "Notes" : notes,
     "Tag" : tag,
     "Date" : Date()
@@ -45,8 +47,9 @@ router.post('/user', async function (req, res, next) {
     var subcat = await req.body.topic;
     var metric = await req.body.chapter;
     var tag = req.body.tags;
-    var proof = await req.body.proof;
-    console.log(proof)
+    var id_proof = await req.body.proof.split("|");
+    var proof = id_proof[1];
+    var driveID = id_proof[0];
     var notes = await req.body.Comment
     doc = {
       "_id" : id,
@@ -55,6 +58,7 @@ router.post('/user', async function (req, res, next) {
       "metric" : metric,
       "value" : req.body.val,
       "Proof" : proof,
+      "DriveID": driveID,
       "Notes" : notes,
       "Tag" : tag,
       "Date" : Date()
