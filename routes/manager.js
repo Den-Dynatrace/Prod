@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const path = require('path');
-const {empID,numberQuery,employeeNames} = require("../db_queries");
+const {empID,numberQuery,employeeNames, getCollections, newUser} = require("../db_queries");
 var queries = require('../individual.js');
 const fetch = require('../public/javascripts/fetch.js')
 const {isAuthenticated, mgmtCheck} = require("../public/javascripts/utils")
@@ -12,6 +12,7 @@ const GRAPH_DIRECT_REPORTS = process.env.GRAPH_API_ENDPOINT + "v1.0/me/directRep
 
 /* GET manager page */
 router.get('/', isAuthenticated, mgmtCheck, async function(req, res, next) {
+  var empAdded = await getCollections();
   tokenClaims = req.session.account.idTokenClaims;
   manager = tokenClaims.preferred_username;
   var directReports = fetch(GRAPH_DIRECT_REPORTS, req.session.accessToken)
@@ -19,6 +20,9 @@ router.get('/', isAuthenticated, mgmtCheck, async function(req, res, next) {
   let empIDs = []
   for(e in emps){
     id = emps[e]["mail"].split("@")[0].toLowerCase();
+    if(empAdded.indexOf(id) < 0){
+      await newUser(emps[e], manager);
+    }
     empIDs.push(id);
   }
   var managerCard = await employeeNames(manager);
