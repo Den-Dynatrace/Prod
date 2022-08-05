@@ -54,6 +54,10 @@
                 topicSel.length = 1;
                 documentSel.length = 1;
                 //display correct values
+                for(doc in docArray) {
+                linkArray = docArray[doc].split("|");
+                documentSel.options[documentSel.options.length] = new Option(linkArray[1], linkArray[1]);
+                }
                 for (var y in subjectObject[this.value]) {
                   topicSel.options[topicSel.options.length] = new Option(y, y);
                 }
@@ -65,6 +69,10 @@
                 //display correct values
                 var z = subjectObject[subjectSel.value][this.value];
                 //console.log(this.value);
+                for(doc in docArray) {
+                linkArray = docArray[doc].split("|");
+                documentSel.options[documentSel.options.length] = new Option(linkArray[1], linkArray[1]);
+                }
                 for (var i = 0; i < z.length; i++) {
                   chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
                 }
