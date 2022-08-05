@@ -29,6 +29,7 @@
         "Participate in internal process development and continuous improvement": ["# of new/improved processes","% time/efficiency improvement"]
         }
     }
+    // Sets the selec options based on above dictionary 
     window.onload = function() {
       var subjectSel = document.getElementById("subject");
       var topicSel = document.getElementById("topic");
@@ -70,6 +71,7 @@ function launchSaveToOneDrive(){
     openInNewWindow: true,
     accountSwitchEnabled: true,
     success: function(files) {
+      // Set invisible choice to this element to save id and url value in db
       var urlSelect = document.getElementById("proof") 
       var id_URL = files["value"][0]["id"] + "|" + files["value"][0]["webUrl"];
       urlSelect.options[urlSelect.options.length] = new Option(id_URL, id_URL);
