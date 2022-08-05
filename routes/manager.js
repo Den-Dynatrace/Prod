@@ -1,3 +1,9 @@
+/**
+ * manager router js handles get and post response to manager.ejs
+ * page allows employees selection for manager veiwing + add/remove doc
+ * also allows for manager and employee deletion only available to mgmt
+ * * @creator Erik Sundblad 8/5/2022
+ */
 var express = require('express');
 var router = express.Router();
 const {empID,numberQuery,employeeNames, getCollections, newUser} = require("../db_queries");
@@ -9,21 +15,25 @@ const GRAPH_DIRECT_REPORTS = process.env.GRAPH_API_ENDPOINT + "v1.0/me/directRep
 
 
 
-/* GET manager page */
+//GET manager.ejs route, must be authenticated and must be manager
+// pulls employee list from graph API as directReports
 router.get('/', isAuthenticated, mgmtCheck, async function(req, res, next) {
   var empAdded = await getCollections();
   tokenClaims = req.session.account.idTokenClaims;
   manager = tokenClaims.preferred_username;
+  //get direct reports from API
   var directReports = fetch(GRAPH_DIRECT_REPORTS, req.session.accessToken)
   var emps = directReports["value"]
   let empIDs = []
+  // Check that all employees exist in DB if not add
   for(e in emps){
-    id = emps[e]["mail"].split("@")[0].toLowerCase();
+    id = emps[e]["mail"].split("@")[0].toLowerCase(); //all lowercase
     if(empAdded.indexOf(id) < 0){
       await newUser(emps[e], manager);
     }
     empIDs.push(id);
   }
+  //render manager page with list of direct reports "empIDs"
   var managerCard = await employeeNames(manager);
   res.render('manager', { name  : managerCard["name"],
                           email : managerCard["_id"],
@@ -32,6 +42,8 @@ router.get('/', isAuthenticated, mgmtCheck, async function(req, res, next) {
 });
 
 
+//post request mirrors normal profile page render, must be done specifically as manager 
+//to utlize specific chosen employee. 
 router.post('/',isAuthenticated, async function(req, res, next){
   let results = []
   let total = 0;
@@ -103,8 +115,8 @@ router.post('/',isAuthenticated, async function(req, res, next){
         v4: recogTot
       });
                       }
+                      // if employee doesnt exhist redirect to mgmt page
                       else{
-                        //flash nothing to display
                         res.redirect("manager")
                       }  
 });

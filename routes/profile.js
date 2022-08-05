@@ -1,22 +1,28 @@
+/**
+ * Profile Router to handle GET profile request
+ * profile has no POST request functionality
+ * Main view page populates metric values from db
+ */
 var express = require('express');
 var router = express.Router();
-const {numberQuery, empID, mgmtList, managagerUpdate, newManager, employeeListUpdate, removeEmp } = require('../db_queries.js')
+const {numberQuery, empID, mgmtList, managagerUpdate, newManager} = require('../db_queries.js')
 var queries = require('../individual.js')
 const {isAuthenticated, isMGMT} = require('../public/javascripts/utils.js')
 const fetch = require("../public/javascripts/fetch")
 const GRAPH_ME_ENDPOINT = process.env.GRAPH_API_ENDPOINT + "v1.0/me";
 
 
-/* GET profile page. */
+//handle GET profile page
+//checks for authentication and is Manager
 router.get('/',isAuthenticated, isMGMT, async function(req, res) {
   tokenClaims = req.session.account.idTokenClaims;
   var user = tokenClaims.preferred_username.split("@")
-  user = user[0].toLowerCase()
-  GRAPH_MANAGER = GRAPH_ME_ENDPOINT + "/manager";
-  const manager = await fetch(GRAPH_MANAGER, req.session.accessToken);
-  let manager_id = manager.mail.toLowerCase();
+  user = user[0].toLowerCase()    //all db usernames are lowercase
+  GRAPH_MANAGER = GRAPH_ME_ENDPOINT + "/manager";   
+  const manager = await fetch(GRAPH_MANAGER, req.session.accessToken);  //get user manager card graph API
+  let manager_id = manager.mail.toLowerCase();  // all need to be lowercase to match db
   
-  //Variables for totals 
+  //Variables for sum totals at botom of page
   let results =[];
   let total = 0;
   let contenLabTot = 0;
@@ -26,15 +32,18 @@ router.get('/',isAuthenticated, isMGMT, async function(req, res) {
   
   //console.log(user)
   id = await empID(user)
-  if(id.length > 0){
-    //double check that manager hasnt been updated
+  //Check if user exists if not forward to new user
+  if(id.length > 0){ 
+    //double check that manager in db matches manager in Active Directory
     if (id[0].manager.toLowerCase() != manager_id){
-      await managagerUpdate(user, manager_id);
+      //update user id card with correct manager
+      await managagerUpdate(user, manager_id); 
       let mgmList = [];
       const raw = await mgmtList();
       for(var item in raw){
           mgmList.push(raw[item]["_id"])
       }
+      // if a new manager add to the db
       if(!mgmList.includes(manager_id)){
           await newManager(manager);
       }
@@ -42,21 +51,22 @@ router.get('/',isAuthenticated, isMGMT, async function(req, res) {
         
 
     for (let query in queries) {
-      //console.log(queries[query])
+      // run all queries from individual.js 
       val = await numberQuery(queries[query], user)
       total += val[0]
 
+      //while running aggregate the corresponding totals 
       if(query < 11) {contenLabTot += val[0];}
       else if(query < 22  ) {prodFeedTot += val[0];}
       else if(query < 30 ) {evangelTot += val[0];}
       else {recogTot += val[0];}
-      //console.log(val)
-      
+      //array to store results of db queries 
       results.push(val)
     }
     res.render('profile', { i0: id[0].name,
                           i1: id[0].Position,
                           i2: id[0].Location,
+                          // resutl[x][0] = sum of metric, result[x].slice(1) = array of strings =["id | link",...]
                           a0: results[0][0], b0: results[0].slice(1),   //# of sessions
                           a1: results[1][0], b1: results[1].slice(1), //# of videos
                           a2: results[2][0], b2: results[2].slice(1), //# of DU Content
@@ -103,6 +113,7 @@ router.get('/',isAuthenticated, isMGMT, async function(req, res) {
   }
   
   else{
+    // add new user not found in db
     res.redirect("newUser")
   }
    

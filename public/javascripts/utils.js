@@ -1,14 +1,27 @@
+/**
+ * Collection of session verification function 
+ * additional delete API function modified "fetch"
+ * @creator Erik Sundblad
+ */
 var axios = require('axios').default;
 const {mgmtList} = require('../../db_queries')
 
-
+/**
+ * checks if session has authentication and routes accordingly
+ * @returns signin route if not authenticated
+ */
 function isAuthenticated(req, res, next) {
     if (!req.session.isAuthenticated) {
-        return res.redirect('/'); // redirect to sign-in route
+        return res.redirect('/'); // redirect to index route
     }
     next();  
 };
 
+
+/**
+ * checks if user is a manager if not reroute user to index
+ * @returns route based on verification
+ */
 async function mgmtCheck(req, res, next){
     tokenClaims = req.session.account.idTokenClaims;
     //console.log(tokenClaims.preferred_username)
@@ -22,7 +35,10 @@ async function mgmtCheck(req, res, next){
     return res.redirect('/')   
 }
 
-
+/**
+ * checks if user is manager and routes away from user route to mgmt route
+ * @returns coresponding router
+ */
 async function isMGMT(req, res, next,) {
     tokenClaims = req.session.account.idTokenClaims;
     //console.log(tokenClaims.preferred_username)
@@ -31,12 +47,8 @@ async function isMGMT(req, res, next,) {
     for(var mgrs in mgmt){
         if(managerEmail == mgmt[mgrs]["_id"] ){
             return res.redirect("manager");
-            
-            //req.session.managment = true;
         }
-        //console.log(result[mgmt]["_id"])
       }
-    
     next();
     }
 
