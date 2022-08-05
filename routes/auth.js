@@ -71,7 +71,6 @@ async function redirectToAuthCodeUrl(req, res, next, authCodeUrlRequestParams, a
 router.get('/signin', async function (req, res, next) {
     host = "https://" +req.get('host');
     REDIRECT = host + REDIRECT_URI;
-
     // create a GUID for crsf
     req.session.csrfToken = cryptoProvider.createNewGuid();
 

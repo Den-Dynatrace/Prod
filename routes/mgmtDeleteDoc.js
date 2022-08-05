@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const {isAuthenticated, mgmtCheck} = require("../public/javascripts/utils")
-const {listAllDocs, deleteDocument} = require('../db_queries.js');
+const {listAllDocs} = require('../db_queries.js');
 
 router.post('/',isAuthenticated, mgmtCheck, async function(req, res, next){
   let user = req.body.employee.toLowerCase();

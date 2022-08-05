@@ -39,8 +39,7 @@ router.get('/',isAuthenticated, isMGMT, async function(req, res) {
           await newManager(manager);
       }
     }
-    
-    
+        
 
     for (let query in queries) {
       //console.log(queries[query])
@@ -55,7 +54,6 @@ router.get('/',isAuthenticated, isMGMT, async function(req, res) {
       
       results.push(val)
     }
-    console.log(results[0].slice(1))
     res.render('profile', { i0: id[0].name,
                           i1: id[0].Position,
                           i2: id[0].Location,
@@ -109,7 +107,5 @@ router.get('/',isAuthenticated, isMGMT, async function(req, res) {
   }
    
 });
-
-
 
 module.exports = router;

@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const path = require('path');
 const {empID,numberQuery,employeeNames, getCollections, newUser} = require("../db_queries");
 var queries = require('../individual.js');
 const fetch = require('../public/javascripts/fetch.js')

@@ -18,7 +18,7 @@ router.get('/', isAuthenticated, mgmtCheck, async function(req, res) {
 
 router.post('/', async function(req, res){
     userType = req.body.ManagerEmployee
-    console.log(userType)
+    //console.log(userType)
     user = req.body.Individual
     if(userType == "Manager"){
         await mgmtDelete(user);
