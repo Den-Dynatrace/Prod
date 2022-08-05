@@ -8,18 +8,21 @@
 		<link rel="StyleSheet" href='stylesheets/profilepageuser.css'/>
 		<script src="https://secure.exportkit.com/cdn/js/ek_googlefonts.js?v=6"></script>
 		<script>
+			//Function given metric element id and doc id/link adds 
+			//given values to popup window 
 			function getLinks(metric, links){
 				var div = document.getElementById(metric)
 				oldTable = div.lastChild;
 				if(oldTable){
-					div.removeChild(oldTable);
+					div.removeChild(oldTable); //empty popup list upon every onclick action 
 				}
 				var popupText = document.createElement("ul");
-				var linkAray = links.split("|")
+				var linkAray = links.split("|") //special string encoding links contain commas so id and link seperated by | in string 
 				console.log(linkAray)
 				for(link in linkAray){
 					if((link % 2) != 0){
 						let li = document.createElement("li");
+						//							actual hyperlink to doc						id of give doc
 						li.innerHTML = "<a href='"+ linkAray[Number(link)+1]+"' target='_blank'>"+linkAray[link]+"</a>";
 						popupText.appendChild(li);
 					}

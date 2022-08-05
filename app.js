@@ -1,5 +1,10 @@
-require('dotenv').config();
+/**
+ * application server and centeral routing tool
+ * all router connections setm from here 
+ * utilizing express and express session 
+ */
 
+require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
 var session = require('express-session')
@@ -23,8 +28,8 @@ var mgmtDeleteDocRouter = require('./routes/mgmtDeleteDoc');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));    
+app.set('view engine', 'ejs');  //utilizing ejs as view engine and veiw page language
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -34,11 +39,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use(session({
-  secret: process.env.EXPRESS_SESSION_SECRET,
+  secret: process.env.EXPRESS_SESSION_SECRET, //custome set secrete
   resave: false,
   saveUninitialized: false,
   cookie: {
-      secure: false, // set this to true on production
+      secure: false, // will break in Azure keep false
   }
 }));
 
