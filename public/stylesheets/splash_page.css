@@ -1,0 +1,293 @@
+/*
+	@name splash_page
+*/
+/* Only edit this if you know what you are doing! */
+body { margin: 0px; padding: 0px; font-family:"Arial"; overflow-x:hidden; }
+
+/* Only edit this if you know what you are doing! */
+img { position: absolute; display: block; margin: 0px; border: none; padding: 0px; }
+
+/* Only edit this if you know what you are doing! */
+div { position: absolute; }
+
+#content-container { display: block; position: absolute; width: 100%; width: 100%; height: 100%; overflow: hidden; display: block;  margin-left: auto; margin-right: auto;  }
+
+#_bg__splash_page {
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background:rgba(0,0,0,1);
+}
+
+#FAQbutton_cls_a{
+	top: 750px;
+	left:1200px;
+	width:350px;
+	height:100px;
+	position:absolute;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 32px;
+	text-align: center;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#1496FF;
+}
+
+#frame_1 {
+	top: 221px;
+	left: 493px;
+	width: 460px;
+	height: 102px;
+}
+#logo {
+	top: 10px;
+	left: 10px;
+	width: 440px;
+	height: 82px;
+}
+
+#logout{
+	top:90%;
+	left: 1170px;
+	width: 350px;
+	height: 100px;
+	overflow: hidden;
+	font-size: 32px;
+	text-align: left;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#1496FF;
+}
+
+#fill_3 {
+	top: 0.02px;
+	left: 265.37px;
+	width: 24.15px;
+	height: 66.57px;
+}
+
+
+#fill_4 {
+	top: 0.02px;
+	left: 87.84px;
+	width: 38.65px;
+	height: 66.63px;
+}
+
+
+#fill_5 {
+	top: 15.41px;
+	left: 364.23px;
+	width: 33.8px;
+	height: 51.29px;
+}
+
+
+#fill_6 {
+	top: 15.36px;
+	left: 220.44px;
+	width: 38.65px;
+	height: 51.23px;
+}
+
+
+#fill_7 {
+	top: 15.36px;
+	left: 320.79px;
+	width: 38.65px;
+	height: 51.23px;
+}
+
+
+#fill_8 {
+	top: 15.36px;
+	left: 131.28px;
+	width: 43.39px;
+	height: 66.63px;
+}
+
+
+#fill_9 {
+	top: 15.36px;
+	left: 177.1px;
+	width: 38.6px;
+	height: 51.29px;
+}
+
+
+#fill_10 {
+	top: 15.36px;
+	left: 401.39px;
+	width: 38.61px;
+	height: 51.29px;
+}
+
+
+#fill_11 {
+	top: 6.75px;
+	left: 0px;
+	width: 25.75px;
+	height: 66.68px;
+}
+
+
+#fill_12 {
+	top: 6.76px;
+	left: 0px;
+	width: 25.75px;
+	height: 25.11px;
+}
+
+
+#fill_13 {
+	top: 0px;
+	left: 0px;
+	width: 70.36px;
+	height: 31.81px;
+}
+
+
+#fill_14 {
+	top: 55.75px;
+	left: 5.85px;
+	width: 63.89px;
+	height: 26.17px;
+}
+
+
+#fill_15 {
+	top: 55.75px;
+	left: 44.89px;
+	width: 24.85px;
+	height: 26.11px;
+}
+
+
+#fill_16 {
+	top: 8.56px;
+	left: 44.83px;
+	width: 31.49px;
+	height: 73.44px;
+}
+
+#frame_2 {
+	top: 363px;
+	left: 558px;
+	width: 382px;
+	height: 42px;
+}
+
+#sme_tracker {
+	top: 10px;
+	left: -1px;
+	width: 399px;
+	height: 67px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 64px;
+	text-align: center;
+	line-height: 22px;
+	padding-top: 42px;
+	margin-top: -42px;
+	letter-spacing: 0.5px;
+	color:#FFFFFF;
+}
+
+#loginbutton {
+	top: 45px;
+	left: 1222px;
+	width: 91px;
+	height: 44px;
+}
+
+#log_in {
+	top: 0px;
+	left: -50px;
+	width: 112px;
+	height: 66px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 32px;
+	text-align: center;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#1496FF;
+}
+
+#yourprofilebutton_cls_a {
+	top: 56px;
+	left: 62px;
+	width: 171px;
+	height: 22px;
+	position: absolute;
+}
+#editbutton_cls_a {
+	top: 25px;
+	left: 0px;
+	width: 171px;
+	height: 22px;
+	position:absolute;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 32px;
+	text-align: center;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#1496FF;
+}
+
+#logoutbutton_cls_a{
+	top: 25px;
+	left:1200px;
+	width:350px;
+	height:100px;
+	position:absolute;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 32px;
+	text-align: center;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#1496FF;
+}
+
+#yourprofile {
+	top: 80px;
+	left: 75px;
+	width: 192px;
+	height: 44px;
+	overflow: hidden;
+	font-family: Roboto;
+	font-size: 32px;
+	text-align: center;
+	line-height: 22px;
+	padding-top: 10px;
+	margin-top: -10px;
+	letter-spacing: 0.5px;
+	color:#1496FF;
+}
+
+#fill_1 {
+	top: 15px;
+	left: 297px;
+	width:  24.15px;
+	height: 50px;
+}
+
+
+
+
+
+/* Add your custom CSS here */
