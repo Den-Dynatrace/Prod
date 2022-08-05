@@ -8,7 +8,9 @@ router.post('/',isAuthenticated, mgmtCheck, async function(req, res, next){
   var docs = await listAllDocs(user);
   shortDocs = []
   for(e in docs){
+    if(!docs[e]["_id"] == user){
       shortDocs.push(docs[e]["metric"] + '|' + docs[e]["_id"]);
+    }
   }
 
   res.render("deleteDoc", {docs: shortDocs, mgmt:true, user:user});
