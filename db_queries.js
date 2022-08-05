@@ -13,6 +13,12 @@ const uri = process.env.MONGO_URI
 const client = new MongoClient(uri);
 
 
+/**
+ * Update the manager feild in id doc of give emplyee
+ * @param {user id } user 
+ * @param {manager id} manager_id 
+ * @returns True on Success 
+ */
 async function managagerUpdate(user, manager_id){
   return new Promise(function(resolve, reject){
     const connect = client.db("SME_Tracker");
@@ -21,7 +27,11 @@ async function managagerUpdate(user, manager_id){
   });
 }
 
-
+/**
+ * inject new sme document into db user collection 
+ * @param {user id} user 
+ * @param {Document to inject} doc 
+ */
 function inject(user, doc){
     client.connect(err => {
         const collection = client.db("SME_Tracker").collection(user);
@@ -33,6 +43,13 @@ function inject(user, doc){
     });
 }
 
+/**
+ * Artifact Query replaced by MAP API call (get directReports)
+ * Update employee list of manager id doc with given employee
+ * @param {manager id} manager 
+ * @param {user id} emp 
+ * @returns true up success
+ */
 async function employeeListUpdate(manager, emp){
   return new Promise(function(resolve, reject){
     const connect = client.db("SME_Tracker");
@@ -44,7 +61,10 @@ async function employeeListUpdate(manager, emp){
   });
 }
 
-
+/**
+ * Function to return all managers currently known to database
+ * @returns array list of all manager id's
+ */
 async function mgmtList(){
   return new Promise(function(resolve, reject){
     const connect = client.db("SME_Tracker")
@@ -59,6 +79,11 @@ async function mgmtList(){
 }
 
 
+/**
+ * function to get manager id doc from managers collection in db
+ * @param {manager id} managerEmail 
+ * @returns returns manager card saved in managers collection
+ */
 async function employeeNames(managerEmail){
     return new Promise(function(resolve, reject) {
       const connect = client.db("SME_Tracker")
@@ -73,6 +98,13 @@ async function employeeNames(managerEmail){
 }
 
 
+/**
+ * Unused replaced by graph API call get directReports
+ * function delets given user from manager employee list on id card in db
+ * @param {manager id} manager 
+ * @param {employee id} emp 
+ * @returns True upon success
+ */
 function removeEmp(manager, emp){
   return new Promise(function(resolve, reject){
     const connect = client.db("SME_Tracker")
@@ -85,15 +117,13 @@ function removeEmp(manager, emp){
 }
 
 
-function tagQuery(tag, language){
-  //TAG QUERY//
-  client.connect(err => {
-    const connect = client.db("SME_Tracker")
-    connect.collection
-  });
-}
-
-
+/**
+ * function to query documents under a specific metric in user collection
+ * @param {specif JSON db query} query 
+ * @param {user id} user 
+ * @returns array with [0] = sum of metric values, followed by string concat of doc id + | + proof 
+ * the return is later parced to be able to pop-up select ids and be linked to location on onedrive
+ */
 async function numberQuery(query, user){ 
 //SIMPLE QUERY//
 return new Promise(function(resolve, reject) {
@@ -118,6 +148,11 @@ return new Promise(function(resolve, reject) {
 }
 
 
+/**
+ * function to retriev user id card from user collection
+ * @param {*} user 
+ * @returns list with element 0 the JSON id car for user collection
+ */
 async function empID(user){
   return new Promise(function(resolve, reject) {
     const connect = client.db("SME_Tracker")
@@ -132,6 +167,11 @@ async function empID(user){
 }
 
 
+/**
+ * Delete employee collection entirely 
+ * @param {user id} user 
+ * @returns true upon success
+ */
 function dropEmp(user){
   return new Promise(function(resolve, reject){
   client.connect(err => {
@@ -147,6 +187,12 @@ function dropEmp(user){
 }
 
 
+/**
+ * Create a new user collection in db
+ * @param {user info from graph API} userInfo 
+ * @param {manager id} mgmt 
+ * @returns true upon success
+ */
 async function newUser(userInfo, mgmt){
   id = userInfo.mail.split("@")
   //console.log(userInfo)
@@ -171,6 +217,12 @@ async function newUser(userInfo, mgmt){
 });
 }
 
+
+/**
+ * Function adds new manager doc to managaers collection
+ * @param {manager id info from graph API} manager 
+ * @returns True upon sucess
+ */
 async function newManager(manager){
   id_doc = {
     "_id": manager.mail,
@@ -191,7 +243,11 @@ async function newManager(manager){
   })
 }
 
-//COLLECTION NAMES//
+
+/**
+ * function to get all employee id's from db collection names omits managers collection
+ * @returns list of all employee id's
+ */
 function getCollections(){
   return new Promise(function(resolve, reject) {
     const connect = client.db("SME_Tracker")
@@ -208,6 +264,12 @@ function getCollections(){
   });
 }
 
+
+/**
+ * function to delete manager doc from managers collection
+ * @param {manager id} manager 
+ * @returns true upon success
+ */
 function mgmtDelete(manager) {
   return new Promise(function(resolve, reject){
     const connect = client.db("SME_Tracker")
@@ -218,16 +280,29 @@ function mgmtDelete(manager) {
   })
 }
 
+
+/**
+ * Funtion to return all documents in given user collection
+ * @param {user id} user 
+ * @returns array of JSON docs omitting id doc
+ */
 function listAllDocs(user) {
   return new Promise(function(resolve, reject){
     const connect = client.db("SME_Tracker")
     connect.collection(user).find({}).toArray(function(err, docs){
       if (err) return reject(err);
-      return resolve(docs);
+      return resolve(docs.slice(1));
     })
   })
 }
 
+
+/**
+ * delets a given document in given user collection
+ * @param {user id} user 
+ * @param {id of document to delete} id 
+ * @returns True upon success
+ */
 function deleteDocument(user, id) {
   return new Promise(function(resolve, reject){
     const connect = client.db("SME_Tracker");
@@ -238,6 +313,13 @@ function deleteDocument(user, id) {
   })
 }
 
+
+/**
+ * retrieves specific document from given user collection
+ * @param {user id} user 
+ * @param {id of document} docID 
+ * @returns JSON document from db
+ */
 function getDoc(user, docID){
   return new Promise(function(resolve, reject){
     const connect = client.db("SME_Tracker");
@@ -248,6 +330,7 @@ function getDoc(user, docID){
     });
   })
 }
+
 
 module.exports = {
 numberQuery,

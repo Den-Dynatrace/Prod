@@ -11,9 +11,7 @@ router.get('/', isAuthenticated, async function(req, res, next) {
     var docs = await listAllDocs(user);
     shortDocs = []
     for(e in docs){
-        if(!docs[4]["_id"] == user){
         shortDocs.push(docs[e]["metric"] + '|' + docs[e]["_id"]);
-        }
     }
 
     res.render("deleteDoc", {docs: shortDocs, mgmt:false, user:user});
