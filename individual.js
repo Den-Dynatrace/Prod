@@ -1,3 +1,10 @@
+/**
+* Javascript file containing all db queries corresponding to 
+* Profile.ejs and Profile.js variable fields
+* Structured queries for mongodb style dn
+* @creator Erik Sundblad 8/5/2022
+*/
+
 queries = [
     {"Overall": "Content and lab development",
     "Sub-Cat": "Develop and continuously improve coaching session, webinar, and Dynatrace University content",
@@ -147,5 +154,6 @@ queries = [
     "Sub-Cat": "Participate in internal process development and continuous improvement",
     "metric": "% time/efficiency improvement"}
 ]
+
 
 module.exports = queries
