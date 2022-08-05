@@ -22,7 +22,7 @@ function inject(user, doc){
         if (err) throw err;
         collection.insertOne(doc, function(err, res){
             if (err) throw err;
-            console.log("Inserted Docs");
+            //console.log("Inserted Docs");
         });
         
     });
@@ -61,7 +61,7 @@ async function employeeNames(managerEmail){
           if(err) {
             return reject(err)
           }
-          console.log(results[0])
+          //console.log(results[0])
           return resolve(results[0])
         });
   });
@@ -134,7 +134,7 @@ function dropEmp(user){
     if (err) return reject(err);
     collection.drop(function(err, res){
       if (err) return reject(err);
-      console.log("Collection Droped")
+      //console.log("Collection Droped")
       return resolve(true);
     })
   })
@@ -144,7 +144,7 @@ function dropEmp(user){
 
 async function newUser(userInfo, mgmt){
   id = userInfo.mail.split("@")
-  console.log(userInfo)
+  //console.log(userInfo)
   id_doc = {
   "_id" : id[0],
   "id_card" : "ID Card",
@@ -159,7 +159,7 @@ async function newUser(userInfo, mgmt){
       if (err) return reject(err) ;
       collection.insertOne(id_doc, function(err, res){
           if (err) return reject(err);
-          console.log("Inserted Docs");
+          //console.log("Inserted Docs");
           return resolve(true);
       });
   })
@@ -179,7 +179,7 @@ async function newManager(manager){
       if (err) return reject(err);
       collection.insertOne(id_doc, function(err, res){
         if (err) return reject(err);
-        console.log("Inserted Docs")
+        //console.log("Inserted Docs")
         return resolve(true);
       })
     })
@@ -243,6 +243,7 @@ function getDoc(user, docID){
     });
   })
 }
+
 module.exports = {
 numberQuery,
 empID,
