@@ -1,5 +1,13 @@
+/** 
+* Javascript file holding all neccissary MongoDB query drivers
+* Utilizes Database connection string saved in .env
+* Generally all are tied to a promise to allow the fucntions to be async
+* Most require a userID, managerID or both
+* userID = first.last,  managerID = first.last@dynatrace.com
+* @creator Erik Sundblad
+*/
+
 require("dotenv").config();
-const fetch = require("./public/javascripts/fetch.js")
 const { MongoClient } = require('mongodb');
 const uri = process.env.MONGO_URI
 const client = new MongoClient(uri);
@@ -14,15 +22,12 @@ async function managagerUpdate(user, manager_id){
 }
 
 
-
 function inject(user, doc){
-    //INSERT ONE//
     client.connect(err => {
         const collection = client.db("SME_Tracker").collection(user);
         if (err) throw err;
         collection.insertOne(doc, function(err, res){
             if (err) throw err;
-            //console.log("Inserted Docs");
         });
         
     });

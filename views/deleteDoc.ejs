@@ -36,7 +36,11 @@
             window.onload = function() {
               var shortDocs = "<%= docs%>";
               var docArray = shortDocs.split(",");
-              console.log(docArray);
+              //console.log(docArray);
+              for(doc in docArray) {
+                linkArray = docArray[doc].split("|");
+                documentSel.options[documentSel.options.length] = new Option(linkArray[1], linkArray[1]);
+              }
               var subjectSel = document.getElementById("category");
               var topicSel = document.getElementById("subcategory");
               var chapterSel = document.getElementById("metric");
