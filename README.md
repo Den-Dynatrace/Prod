@@ -18,4 +18,5 @@ Managers will utilize the same login button and complete the same two series of 
 #Credidation:
 This tool was developed the summer of 2022 as an intern focused activity.  Two Denver Dynatrace interns undertook creating this resource.  Erik Sundblad, and Chris Nodine are the original architects (2022)!
 Much Thanks to Simon Bauer, Clyde Anderson, and Ryan Diehl for oversite guidance and good sense! 
-### Details of further development and current architecture can be found in [Dev](http://github.com/Den-Dynatrace/Dev]!
+### Details of further development and current architecture can be found at: 
+[Dev](http://github.com/Den-Dynatrace/Dev] Repository
