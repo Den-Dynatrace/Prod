@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" >
+	<head>
+		<meta http-equiv="content-type" content="text/html" charset="utf-8" />
+		<title>profilepageuser</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.5">
+		<meta name="description" content="" >
+		<link rel="StyleSheet" href='stylesheets/profilepageuser.css'/>
+		<script src="https://secure.exportkit.com/cdn/js/ek_googlefonts.js?v=6"></script>
+		<script>
+			//Function given metric element id and doc id/link adds 
+			//given values to popup window 
+			function getLinks(metric, links){
+				var div = document.getElementById(metric)
+				oldTable = div.lastChild;
+				if(oldTable){
+					div.removeChild(oldTable); //empty popup list upon every onclick action 
+				}
+				var popupText = document.createElement("ul");
+				var linkAray = links.split("|") //special string encoding links contain commas so id and link seperated by | in string 
+				console.log(linkAray)
+				for(link in linkAray){
+					if((link % 2) != 0){
+						let li = document.createElement("li");
+						//							actual hyperlink to doc						id of give doc
+						li.innerHTML = "<a href='"+ linkAray[Number(link)+1]+"' target='_blank'>"+linkAray[link]+"</a>";
+						popupText.appendChild(li);
+					}
+				}
+				div.appendChild(popupText);
+			}
+		</script>
+
+	</head>
+	<body>
+		<div id="content-container" ></div>
+			<div id="_bg__profilepageuser"  ></div>
+
+			<div id="frame_7"  >
+				<div id="profilename" >
+					Emp: <%= i0 %>
+				</div>
+
+			</div>
+
+			<div id="frame_6"  >
+				<div id="position" >
+					Postition:  <%= i1 %>
+				</div>
+
+			</div>
+
+			<div id="frame_8"  >
+				<div id="location" >
+					Location:  <%= i2 %>
+				</div>
+
+			</div>
+
+			<div id="frame_5"  >
+
+				<a id="backbutton_cls_a"  _par="" href="/" >
+					<div id="rectangle_4"  ></div>
+					<img src="images/vector.png" id="vector" />
+					<div id="back_to_results" >
+						Back<br/>
+					</div>
+
+				</a>
+
+			</div>
+
+			<div id="frame"  >
+
+				<div id="___logo"  >
+
+					<div id="logo_dark_bg_default"  >
+
+						<div id="dynatrace_logo_rgb_cph_800x142px"  >
+
+							<div id="group"  >
+								<img src="images/shape.png" id="shape" />
+								<img src="images/shape_ek1.png" id="shape_ek1" />
+								<img src="images/shape_ek2.png" id="shape_ek2" />
+								<img src="images/shape_ek3.png" id="shape_ek3" />
+								<img src="images/shape_ek4.png" id="shape_ek4" />
+								<img src="images/shape_ek5.png" id="shape_ek5" />
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div id="smeheader"  >
+
+				<div id="overalllcategorybox"  >
+					<div id="overalllcategorybox_ek1"  ></div>
+					<div id="overall_category" >
+						Overall Category
+					</div>
+
+				</div>
+
+				<div id="subcategorybox"  >
+					<div id="rectangle_7"  ></div>
+					<div id="sub_category" >
+						Sub-Category
+					</div>
+
+				</div>
+
+				<div id="metricbox"  >
+					<div id="rectangle_8"  ></div>
+					<div id="metric" >
+						Metric
+					</div>
+
+				</div>
+
+				<div id="valuebox"  >
+					<div id="rectangle_9"  ></div>
+					<div id="value" >
+						Value
+					</div>
+
+				</div>
+
+			</div>
+
+			<div id="contentandlabdevelopmentbox"  >
+				<div id="rectangle_10"  ></div>
+				<div id="content_and_lab_development" >
+					Content and Lab Development
+				</div>
+				<div id="line_15"  ></div>
+
+			</div>
+
+			<div id="assist_in_building_lab_evironmentsbox"  >
+				<div id="rectangle_12"  ></div>
+				<div id="deliver_internal_product_specialist_training" >
+					Assist in building Lab Evironments
+				</div>
+
+			</div>
+
+			<div id="parterbox"  >
+				<div id="rectangle_12_ek1"  ></div>
+				<div id="parter_with_other_teams_to_develop_dynatrace_best_practices" >
+					Parter with other teams to develop Dynatrace best practices
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek1"  >
+				<div id="metricbox_ek2"  ></div>
+				<div id="___of_sessions" >
+					# of Sessions
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek3"  >
+				<div id="metricbox_ek4"  ></div>
+				<div id="___of_sessions_ek1" >
+					# of Sessions
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek5"  >
+				<div id="metricbox_ek6"  ></div>
+				<div id="___of_others_participating_in_lab_development" >
+					# of others participating in lab development
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek7"  >
+				<div id="metricbox_ek8"  ></div>
+				<div id="___of_others_using_labs" >
+					# of others using labs
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek9"  >
+				<div id="metricbox_ek10"  ></div>
+				<div id="___of_environments_developed" >
+					# of environments developed
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek11"  >
+				<div id="metricbox_ek12"  ></div>
+				<div id="___of_topics_developed" >
+					# of topics developed
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek13"  >
+				<div id="metricbox_ek14"  ></div>
+				<div id="___of_best_practice_guidlines" >
+					# of best practice guidlines
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek15"  >
+				<div id="metricbox_ek16"  ></div>
+				<div id="___of_meetings_participated_in" >
+					# of meetings participated in
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek17"  >
+				<div id="metricbox_ek18"  ></div>
+				<div id="___of_sessions_ek2" >
+					% CSAT Score
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek19"  >
+				<div id="metricbox_ek20"  ></div>
+				<div id="___of_training_delivered" >
+					# of training delivered
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek21"  >
+				<div id="metricbox_ek22"  ></div>
+				<div id="___of_sessions_ek3" >
+					# of DU Content
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek23"  >
+				<div id="metricbox_ek24"  ></div>
+				<div id="___of_sessions_ek4" >
+					# of videos
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek1"  > <!--# of sessions-->
+				<div class = "box">
+					<a id="rectangle_13"  href="#divOne" class="button" onclick="getLinks('numSessions', '<%= b0%>')"><%= a0 %></a>
+				</div>
+				<div class="overlay" id="divOne">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="numSessions" class = "container">
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+				
+
+			</div>
+
+			<div id="valuebox_ek2"  ><!--# of others participating in lab development-->
+				<div class="box" id="box2">
+					<a id="rectangle_13_ek1"  href="#divEleven" class="button" onclick="getLinks('#ofOthersParticipatingLabDev', '<%=b10%>')"><%= a10 %></a>
+				</div>
+				<div class="overlay" id="divEleven">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofOthersParticipatingLabDev" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek3"  ><!--# of others using labs-->
+				<div class="box" id="box3">
+					<a id="rectangle_13_ek2"  href="#divTen" class="button" onclick="getLinks('#ofOthersUsingLabs', '<%=b9%>')"><%= a9 %></a>
+				</div>
+				<div class="overlay" id="divTen">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofOthersUsingLabs" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek4"  ><!--# of environments developed-->
+				<div class="box" id="box4">
+					<a id="rectangle_13_ek3"  href="#divNine" class="button" onclick="getLinks('#ofEnvDev', '<%=b8%>')"><%= a8 %></a>
+				</div>
+				<div class="overlay" id="divNine">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofEnvDev" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek5"  ><!--# of topics developed-->
+				<div class="box" id="box5">
+					<a id="rectangle_13_ek4"  href="#divEight" class="button" onclick="getLinks('#ofTopicsDev', '<%=b7%>')"><%= a7 %></a>
+				</div>
+				<div class="overlay" id="divEight">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofTopicsDev" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek6"  ><!--# of best practice guidlines-->
+				<div class="box" id="box6">
+					<a id="rectangle_13_ek5"  href="#divSeven" class="button" onclick="getLinks('#ofBestPractice', '<%=b6%>')"><%= a6 %></a>
+				</div>
+				<div class="overlay" id="divSeven">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofBestPractice" class="container"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="valuebox_ek7"  ><!--# of meetings participated in-->
+				<div class="box" id="box7">
+					<a id="rectangle_13_ek6"  href="#divSix" class="button" onclick="getLinks('#ofMeetings', '<%=b5%>')"><%= a5 %></a>
+				</div>
+				<div class="overlay" id="divSix">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofMeetings" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek8"  ><!--% CSAT score-->
+				<div class="box" id="box8">
+					<a id="rectangle_13_ek7"  href="#divFive" class="button" onclick="getLinks('percentCSAT', '<%=b4%>')"><%= a4 %></a>
+				</div>
+				<div class="overlay" id="divFive">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="percentCSAT" class="container"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="valuebox_ek9"  ><!--# of training delivered-->
+				<div class="box" id="box9">
+					<a id="rectangle_13_ek8"  href="#divFour" class="button" onclick="getLinks('numTrainingDelivered', '<%=b3%>')"><%= a3 %></a>
+				</div>
+				<div class="overlay" id="divFour">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="numTrainingDelivered" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek10"  ><!--# of DU content-->
+				<div class="box">
+					<a id="rectangle_13_ek9"  href="#divThree" class="button" onclick="getLinks('numDUContent', '<%=b2%>')"><%= a2 %></a>
+				</div>
+				<div class="overlay" id="divThree">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="numDUContent" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek11"  ><!--# of videos-->
+				<div class="box">
+					<a id="rectangle_13_ek10"  href="#divTwo" class="button" onclick="getLinks('numVideos', '<%=b1%>')"><%= a1 %></a>
+				</div>
+				<div class="overlay" id="divTwo">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="numVideos" class="container"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="metricbox_ek25"  >
+				<div id="metricbox_ek26"  ></div>
+				<div id="_____inc__of_self_help" >
+					#/% inc. of self-help
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek27"  >
+				<div id="metricbox_ek28"  ></div>
+				<div id="_____dec__in_chats" >
+					#/% dec. in chats
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek29"  >
+				<div id="metricbox_ek30"  ></div>
+				<div id="___of_articles_written" >
+					# of articles written
+				</div>
+
+			</div>
+
+			<div id="contentandlabdevelopmentbox_ek1"  >
+				<div id="rectangle_10_ek1"  ></div>
+				<div id="product_feedback_product__self_help__internal_processes_" >
+					Product feedback(product ,self-help, internal processes)
+				</div>
+
+			</div>
+
+			<div id="improvebox"  >
+				<div id="rectangle_11"  ></div>
+				<div id="develop_and_continuosly_imrpove_coaching_session__webinar__and_dynatrace_university_content" >
+					Analyze chats/tickets
+				</div>
+
+			</div>
+
+			<div id="internalpstrainingbox"  >
+				<div id="rectangle_12_ek2"  ></div>
+				<div id="deliver_internal_product_specialist_training_ek1" >
+					Develop content to help deflect chats
+				</div>
+
+			</div>
+
+			<div id="parterbox_ek1"  >
+				<div id="rectangle_12_ek3"  ></div>
+				<div id="work_with_product_management_r_d_to_improve_product_self_service" >
+					Work with Product Management/R&amp;D to improve product self service
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek31"  >
+				<div id="metricbox_ek32"  ></div>
+				<div id="___of_topics_reviewed" >
+					# of topics reviewed
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek33"  >
+				<div id="metricbox_ek34"  ></div>
+				<div id="_____decrease_in_chats" >
+					#/% decrease in chats
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek35"  >
+				<div id="metricbox_ek36"  ></div>
+				<div id="_____increase_of_self_help" >
+					#/% increase of self-help
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek37"  >
+				<div id="metricbox_ek38"  ></div>
+				<div id="___of_product_enhancements_requests_released" >
+					# of product enhancements requests/released
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek39"  >
+				<div id="metricbox_ek40"  ></div>
+				<div id="___of_tkbs_created_edited" >
+					# of TKBs created/edited
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek41"  >
+				<div id="metricbox_ek42"  ></div>
+				<div id="___of_answer_bots_developed" >
+					# of answer bots developed
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek43"  >
+				<div id="metricbox_ek44"  ></div>
+				<div id="___of_reccomendations_provided" >
+					# of reccomendations provided
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek45"  >
+				<div id="metricbox_ek46"  ></div>
+				<div id="___of_trends_identified" >
+					# of trends Identified
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek12"  ><!--# of topics reviewed-->
+				<div class="box" id="box12">
+					<a id="rectangle_13_ek11"  href="#divTwelve" class="button" onclick="getLinks('#ofTopicsRev', '<%=b11%>')"><%= a11 %></a>
+				</div>
+				<div class="overlay" id="divTwelve">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofTopicsRev" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek13"  ><!--#/% dec. in chats-->
+				<div class="box" id="box13">
+					<a id="rectangle_13_ek12"  href="#divNineteen" class="button" onclick="getLinks('#/%decinChats', '<%=b18%>')"><%= a18 %></a>
+				</div>
+				<div class="overlay" id="divNineteen">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#/%decinChats" class="container"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="valuebox_ek14"  ><!--# of articles written-->
+				<div class="box" id="box14">
+					<a id="rectangle_13_ek13"  href="#divSeventeen" class="button" onclick="getLinks('#ofArticlesWritten', '<%=b16%>')"><%= a16 %></a>
+				</div>
+				<div class="overlay" id="divSeventeen">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofArticlesWritten" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek15"  ><!--#/% inc. of self-help-->
+				<div class="box" id="box15">
+					<a id="rectangle_13_ek14"  href="#divEighteen" class="button" onclick="getLinks('#/%ofselfhelp', '<%=b17%>')"><%= a17 %></a>
+				</div>
+				<div class="overlay" id="divEighteen">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#/%ofselfhelp" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+
+			<div id="valuebox_ek16"  ><!--#/% decrease in chats-->
+				<div class="box" id="box16">
+					<a id="rectangle_13_ek15"  href="#divTwentyTwo" class="button" onclick="getLinks('#/%DecinChat', '<%=b21%>')"><%= a21 %></a>
+				</div>
+				<div class="overlay" id="divTwentyTwo">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#/%DecinChat" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek17"  ><!--#/% increase of self-help-->
+				<div class="box" id="box17">
+					<a id="rectangle_13_ek16"  href="#divTwentyOne" class="button" onclick="getLinks('#/%IncreaseofSH', '<%=b20%>')"><%= a20 %></a>
+				</div>
+				<div class="overlay" id="divTwentyOne">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#/%IncreaseofSH" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek18"  ><!--# of product enhancements requests/released-->
+				<div class="box" id="box18">
+					<a id="rectangle_13_ek17"  href="#divTwenty" class="button" onclick="getLinks('#ofProdEnhancements', '<%=b19%>')"><%= a19 %></a>
+				</div>
+				<div class="overlay" id="divTwenty">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofProdEnhancements" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek19"  ><!--# of TKBs created/edited-->
+				<div class="box" id="box19">
+					<a id="rectangle_13_ek18"  href="#divSixteen" class="button" onclick="getLinks('#ofTKBs', '<%=b15%>')"><%= a15 %></a>
+				</div>
+				<div class="overlay" id="divSixteen">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofTKBs" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek20"  ><!--# of answer bots developed-->
+				<div class="box" id="box20">
+					<a id="rectangle_13_ek19"  href="#divFifteen" class="button" onclick="getLinks('#ofAnsBotsDev', '<%=b14%>')"><%= a14 %></a>
+				</div>
+				<div class="overlay" id="divFifteen">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofAnsBotsDev" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek21"  ><!--# of reccomendations provided-->
+				<div class="box" id="box21">
+					<a id="rectangle_13_ek20"  href="#divFourteen" class="button" onclick="getLinks('#ofRecProv', '<%=b13%>')"><%= a13 %></a>
+				</div>
+				<div class="overlay" id="divFourteen">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofRecProv" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek22"  ><!--# of trends identified-->
+				<div class="box" id="box22">
+					<a id="rectangle_13_ek21"  href="#divThirteen" class="button" onclick="getLinks('#ofTrendsID', '<%=b12%>')"><%= a12 %></a>
+				</div>
+				<div class="overlay" id="divThirteen">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofTrendsID" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="contentandlabdevelopmentbox_ek2"  >
+				<div id="rectangle_10_ek2"  ></div>
+				<div id="d1_representative___evangelist__internal_and_external_" >
+					D1 representative<br/>/<br/>evangelist (internal and external)
+				</div>
+
+			</div>
+
+			<div id="improvebox_ek1"  >
+				<div id="rectangle_11_ek1"  ></div>
+				<div id="participate_in_cross_functional_swat__value_creation__etc__teams" >
+					Participate in cross-functional SWAT, Value Creation, etc. teams
+				</div>
+
+			</div>
+
+			<div id="internalpstrainingbox_ek1"  >
+				<div id="rectangle_12_ek4"  ></div>
+				<div id="deliver_internal_product_specialist_training_ek2" >
+					Author internal, corporate, and 3rd party blog articles
+				</div>
+
+			</div>
+
+			<div id="assist_in_building_lab_evironmentsbox_ek1"  >
+				<div id="rectangle_12_ek5"  ></div>
+				<div id="deliver_internal_product_specialist_training_ek3" >
+					TPS work and results are recognized by global team
+				</div>
+
+			</div>
+
+			<div id="parterbox_ek2"  >
+				<div id="rectangle_12_ek6"  ></div>
+				<div id="develop_and_present_at_internal__corporate__and_3rd_party_techniccal_confrences" >
+					Develop and present at internal, corporate, and 3rd party techniccal confrences
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek47"  >
+				<div id="metricbox_ek48"  ></div>
+				<div id="___of_sessions_ek5" >
+					# of Sessions
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek49"  >
+				<div id="metricbox_ek50"  ></div>
+				<div id="___of_meetings_attended" >
+					# of meetings attended
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek51"  >
+				<div id="metricbox_ek52"  ></div>
+				<div id="___of_meetings_where_tps_is_presenting_on_a_global_or_cross_regional_basis" >
+					# of meetings where TPS is presenting on a global or cross regional basis
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek53"  >
+				<div id="metricbox_ek54"  ></div>
+				<div id="___of_internal_meetings_where_tps_is_highlighted" >
+					# of internal meetings where TPS is highlighted
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek55"  >
+				<div id="metricbox_ek56"  ></div>
+				<div id="___of_presentations_shared" >
+					# of presentations shared
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek57"  >
+				<div id="metricbox_ek58"  ></div>
+				<div id="___of_conferences_attended" >
+					# of conferences attended
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek59"  >
+				<div id="metricbox_ek60"  ></div>
+				<div id="___reads_per_article" >
+					# reads per article
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek61"  >
+				<div id="metricbox_ek62"  ></div>
+				<div id="___of_articles_published" >
+					# of articles published
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek63"  >
+				<div id="metricbox_ek64"  ></div>
+				<div id="___of_groups_represented_in" >
+					# of groups represented in
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek23"  ><!--# of meetings attended-->
+				<div class="box" id="box23">
+					<a id="rectangle_13_ek22"  href="#divTwentyThree" class="button" onclick="getLinks('#ofMeetingsAttended', '<%=b22%>')"><%= a22 %></a>
+				</div>
+				<div class="overlay" id="divTwentyThree">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofMeetingsAttended" class="container"></div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+
+			<div id="valuebox_ek24"  ><!--# of meetings where TPS is presenting on a global or cross regional basis-->
+				<div class="box" id="box24">
+					<a id="rectangle_13_ek23"  href="#divThirty" class="button" onclick="getLinks('#ofTPSPres', '<%=b29%>')"><%= a29 %></a>
+				</div>
+				<div class="overlay" id="divThirty">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofTPSPres" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
+
+			</div>
+
+			<div id="valuebox_ek25"  ><!--# of internal meetings where TPS is highlighted-->
+				<div class="box" id="box25">
+					<a id="rectangle_13_ek24"  href="#divTwentyNine" class="button" onclick="getLinks('#ofTPSHighlight', '<%=b28%>')"><%= a28 %></a>
+				</div>
+				<div class="overlay" id="divTwentyNine">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofTPSHighlight" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
+
+			</div>
+
+			<div id="valuebox_ek26"  ><!--# of presentations shared-->
+				<div class="box" id="box26">
+				<a id="rectangle_13_ek25"  href="#divTwentyEight" class="button" onclick="getLinks('#ofPresShare', '<%=b27%>')"><%= a27 %></a>
+			</div>
+			<div class="overlay" id="divTwentyEight">
+				<div class="wrapper">
+					<a href="#" class="close">&times; Close</a>
+					<div class="content">
+						<div id="#ofPresShare" class="container"></div>
+					</div>
+				</div>
+
+		</div>
+			</div>
+
+			<div id="valuebox_ek27"  ><!--# of conferences attended-->
+				<div class="box" id="box27">
+					<a id="rectangle_13_ek26"  href="#divTwentySeven" class="button" onclick="getLinks('#ofConfAtt', '<%=b26%>')"><%= a26 %></a>
+				</div>
+				<div class="overlay" id="divTwentySeven">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofConfAtt" class="container"></div>
+						</div>
+					</div>
+
+			</div>
+			</div>
+
+			<div id="valuebox_ek28"  ><!--# reads per article-->
+				<div class="box" id="box28">
+					<a id="rectangle_13_ek27"  href="#divTwentySix" class="button" onclick="getLinks('#ofReadsPerArt', '<%=b25%>')"><%= a25 %></a>
+				</div>
+				<div class="overlay" id="divTwentySix">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofReadsPerArt" class="container"></div>
+						</div>
+					</div>
+
+			</div>
+			</div>
+
+			<div id="valuebox_ek29"  ><!--# of articles published-->
+				<div class="box" id="box29">
+					<a id="rectangle_13_ek28"  href="#divTwentyFive" class="button" onclick="getLinks('#ofArtPub', '<%=b24%>')"><%= a24 %></a>
+				</div>
+				<div class="overlay" id="divTwentyFive">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofArtPub" class="container"></div>
+						</div>
+					</div>
+			</div>
+			</div>
+
+			<div id="valuebox_ek30"  ><!--# of groups represented in-->
+				<div class="box" id="box30">
+					<a id="rectangle_13_ek29"  href="#divTwentyFour" class="button" onclick="getLinks('#ofGroupsRep', '<%=b23%>')"><%= a23 %></a>
+				</div>
+				<div class="overlay" id="divTwentyFour">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofGroupsRep" class="container"></div>
+						</div>
+					</div>
+			</div>
+			</div>
+
+			<div id="contentandlabdevelopmentbox_ek3"  >
+				<div id="rectangle_10_ek3"  ></div>
+				<div id="content_and_lab_development_ek1" >
+					Recognition &amp; Impact
+				</div>
+
+			</div>
+
+			<div id="improvebox_ek2"  >
+				<div id="rectangle_11_ek2"  ></div>
+				<div id="continue_to_expand_technical_knowledge_and_stay_ahead_of_inustry_trends" >
+					Continue to expand technical knowledge and stay ahead of inustry trends
+				</div>
+
+			</div>
+
+			<div id="internalpstrainingbox_ek2"  >
+				<div id="rectangle_12_ek7"  ></div>
+				<div id="engage_on_ad_hoc_customer_meetings_coaching_sessions_q_a" >
+					Engage on ad-hoc customer meetings/coaching sessions/Q&amp;A
+				</div>
+
+			</div>
+
+			<div id="assist_in_building_lab_evironmentsbox_ek2"  >
+				<div id="rectangle_12_ek8"  ></div>
+				<div id="deliver_internal_product_specialist_training_ek4" >
+					Participate in internal process development and continuous improvement
+				</div>
+
+			</div>
+
+			<div id="parterbox_ek3"  >
+				<div id="rectangle_12_ek9"  ></div>
+				<div id="deliver_internal_product_specialist_training_ek5" >
+					Act as an escalation point
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek65"  >
+				<div id="metricbox_ek66"  ></div>
+				<div id="___of_sessions_ek6" >
+					# of Sessions
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek67"  >
+				<div id="metricbox_ek68"  ></div>
+				<div id="___of_advanced_certs" >
+					# of advanced certs
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek69"  >
+				<div id="metricbox_ek70"  ></div>
+				<div id="___time_efficiency_improvement" >
+					% time/efficiency improvement
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek71"  >
+				<div id="metricbox_ek72"  ></div>
+				<div id="___of_new_improved_processes" >
+					# of new/improved processes
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek73"  >
+				<div id="metricbox_ek74"  ></div>
+				<div id="___of_escalations_handled" >
+					# of escalations handled
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek75"  >
+				<div id="metricbox_ek76"  ></div>
+				<div id="___hours_in_chat_outside_of_shift" >
+					# hours in chat outside of shift
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek77"  >
+				<div id="metricbox_ek78"  ></div>
+				<div id="___of_customer_meetings_on_sme_topic__csat_" >
+					# of customer meetings on SME topic, CSAT%
+				</div>
+
+			</div>
+
+			<div id="metricbox_ek79"  >
+				<div id="metricbox_ek80"  ></div>
+				<div id="___of_advanced_training_courses_completred" >
+					# of advanced training courses completred
+				</div>
+
+			</div>
+
+			<div id="valuebox_ek31"  ><!--# of advanced certs-->
+				<div class="box" id="box31">
+					<a id="rectangle_13_ek30"  href="#divThirtyOne" class="button" onclick="getLinks('#ofAdvCert', '<%=b30%>')"><%= a30 %></a>
+				</div>
+				<div class="overlay" id="divThirtyOne">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofAdvCert" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
+
+			</div>
+
+			<div id="valuebox_ek32"  ><!--% time/efficiency improvement-->
+				<div class="box" id="box32">
+					<a id="rectangle_13_ek31"  href="#divThirtySeven" class="button" onclick="getLinks('%time', '<%=b36%>')"><%= a36 %></a>
+				</div>
+				<div class="overlay" id="divThirtySeven">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="%time" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
+			</div>
+
+			<div id="valuebox_ek33"  ><!--# of new/imporved processes-->
+				<div class="box" id="box33">
+					<a id="rectangle_13_ek32"  href="#divThirtySix" class="button" onclick="getLinks('#ofnew/imp', '<%=b35%>')"><%= a35 %></a>
+				</div>
+				<div class="overlay" id="divThirtySix">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofnew/imp" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
+
+			</div>
+
+			<div id="valuebox_ek34"  ><!--# of escalations handled-->
+				<div class="box" id="box34">
+					<a id="rectangle_13_ek33"  href="#divThirtyFive" class="button" onclick="getLinks('#ofEscal', '<%=b34%>')"><%= a34 %></a>
+				</div>
+				<div class="overlay" id="divThirtyFive">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofEscal" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
+
+			</div>
+
+			<div id="valuebox_ek35"  ><!--# hours in chat outside of shift-->
+				<div class="box" id="box35">
+					<a id="rectangle_13_ek34"  href="#divThirtyFour" class="button" onclick="getLinks('#ofChatOutside', '<%=b33%>')"><%= a33 %></a>
+				</div>
+				<div class="overlay" id="divThirtyFour">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofChatOutside" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
+
+			</div>
+
+			<div id="valuebox_ek36"  ><!--# of customer meetings on SME topic, CSAT%-->
+				<div class="box" id="box36">
+					<a id="rectangle_13_ek35"  href="#divThirtyThree" class="button" onclick="getLinks('#ofCustMeet', '<%=b32%>')"><%= a32 %></a>
+				</div>
+				<div class="overlay" id="divThirtyThree">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofCustMeet" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
+
+			</div>
+
+
+			<div id="valuebox_ek37"  ><!--# of advanced training courses completred-->
+				<div class="box" id="box37">
+					<a id="rectangle_13_ek36"  href="#divThirtyTwo" class="button" onclick="getLinks('#ofAdvTrain', '<%=b31%>')"><%= a31 %></a>
+				</div>
+				<div class="overlay" id="divThirtyTwo">
+					<div class="wrapper">
+						<a href="#" class="close">&times; Close</a>
+						<div class="content">
+							<div id="#ofAdvTrain" class="container"></div>
+						</div>
+					</div>
+	
+			</div>
+			</div>
+
+			<div id="subtotals"  >
+
+				<div id="subtotalsbox"  >
+					<div id="rectangle_14"  ></div>
+					<div id="sub_totals" >
+						Sub Totals
+					</div>
+
+				</div>
+
+				<div id="subtotalbox"  >
+					<div id="rectangle_15"  ></div>
+					<div id="total" >
+						Total
+					</div>
+
+				</div>
+
+				<div id="subtotalbox_ek1"  >
+					<div id="rectangle_15_ek1"  ></div>
+					<div id="total_ek1" >
+						Recognition and Impact
+					</div>
+
+				</div>
+
+				<div id="subtotalbox_ek2"  >
+					<div id="rectangle_15_ek2"  ></div>
+					<div id="content_and_lab_development_ek2" >
+						Content and Lab Development
+					</div>
+					<div id="line_9"  ></div>
+
+				</div>
+
+				<div id="subtotalbox_ek3"  >
+					<div id="rectangle_15_ek3"  ></div>
+					<div id="product_feedback__product__self_help__internal_processes" >
+						Product Feedback (product, self-help, internal processes
+					</div>
+
+				</div>
+
+				<div id="subtotalbox_ek4"  >
+					<div id="rectangle_15_ek4"  ></div>
+					<div id="d1_representative_evangelist" >
+						 D1 representative/evangelist 
+					</div>
+
+				</div>
+
+				<div id="subtotalvaluebox"  ><!--total-->
+					<div id="rectangle_16"  ></div>
+					<div id="_41_4" >
+						<%= v0 %> 
+					</div>
+
+				</div>
+
+				<div id="subtotalvaluebox_ek1"  ><!--Recognition and impact-->
+					<div id="rectangle_16_ek1"  ></div>
+					<div id="_41_4_ek1" >
+						<%= v4 %>
+					</div>
+
+				</div>
+
+				<div id="subtotalvaluebox_ek2"  ><!--Product Feedback-->
+					<div id="rectangle_16_ek2"  ></div>
+					<div id="_41_4_ek2" >
+						<%= v2 %>
+					</div>
+					<div id="line_11"  ></div>
+
+				</div>
+
+				<div id="subtotalvaluebox_ek3"  ><!--D1 representative/evangelist-->
+					<div id="rectangle_16_ek3"  ></div>
+					<div id="_1" >
+						<%= v3 %>
+					</div>
+					<div id="line_12"  ></div>
+
+				</div>
+
+				<div id="subtotalvaluebox_ek4"  ><!--Content and Lab Development-->
+					<div id="rectangle_16_ek4"  ></div>
+					<div id="_41_4_ek3" >
+						<%= v1 %>
+					</div>
+					<div id="line_10"  ></div>
+
+				</div>
+				<div id="line_13"  ></div>
+
+			</div>
+
+			<div id="frame_10"  >
+
+				<div id="editbutton"  >
+
+					<a id="editbutton_ek1_cls_a"  _par="" href="/injectDoc" >
+						<div id="edit" >
+							Add Document
+						</div>
+					</a>
+				</div>
+			</div>
+			<div id="deletebutton">
+					<a id="deletebutton_ek1_cls_a"  _par="" href="/deleteDoc" >
+						<div id="delete" >
+							Delete Document
+						</div>
+					</a>
+
+				</div>
+
+
+			<div id="improvebox_ek3"  >
+				<div id="rectangle_11_ek3"  ></div>
+				<div id="develop_and_continuosly_imrpove_coaching_session__webinar__and_dynatrace_university_content_ek1" >
+					Develop and continuosly imrpove coaching session, webinar, and Dynatrace University content
+				</div>
+
+			</div>
+
+			<div id="internalpstrainingbox_ek3"  >
+				<div id="rectangle_12_ek10"  ></div>
+				<div id="deliver_internal_product_specialist_training_ek6" >
+					Deliver Internal Product Specialist Training
+				</div>
+
+			</div>
+
+			<a id="logoutbutton_cls_a" _par="" href="/auth/signout">
+				<div id="log_out" >
+					 Log out
+				</div>
+			</a>
+
+			<div id="line_5"  ></div>
+			<div id="line_22"  ></div>
+			<div id="line_23"  ></div>
+			<div id="line_27"  ></div>
+			<div id="line_28"  ></div>
+
+	
+	</body>
+</html>
