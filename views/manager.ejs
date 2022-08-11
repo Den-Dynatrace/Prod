@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+        <title>profilepagemanager</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="Stylesheet" href="stylesheets/profilepagemanager.css">
+        <script src="https://secure.exportkit.com/cdn/js/ek_googlefonts.js?v=6"></script>
+        <script>
+            window.onload = function() {
+                var raw = "<%= elist%>";
+                console.log(raw);
+                let empList = raw.split(",");
+                var empSelect = document.getElementById("employee")
+                console.log(empSelect.options.length);
+                for(var x in empList){
+                    empSelect.options[empSelect.options.length] = new Option(empList[x], empList[x]);
+                }
+            }                  
+      </script>
+    </head>
+        <body>
+            <div id ="content-container">
+                <div id="_bg__profilepagemanager"></div>
+                <div id ="profilename">
+                    <%= name%> 
+                </div>
+                <div id="position">
+                    Email: <%= email%>
+                </div>
+                <div id="location">
+                    Title: <%= title%>
+                </div>
+                <div id="frame"  >
+
+                    <div id="___logo"  >
+    
+                        <div id="logo_dark_bg_default"  >
+    
+                            <div id="dynatrace_logo_rgb_cph_800x142px"  >
+    
+                                <div id="group"  >
+                                    <img src="images/shape.png" id="shape" />
+                                    <img src="images/shape_ek1.png" id="shape_ek1" />
+                                    <img src="images/shape_ek2.png" id="shape_ek2" />
+                                    <img src="images/shape_ek3.png" id="shape_ek3" />
+                                    <img src="images/shape_ek4.png" id="shape_ek4" />
+                                    <img src="images/shape_ek5.png" id="shape_ek5" />
+    
+                                </div>
+    
+                            </div>
+    
+                        </div>
+    
+                    </div>
+    
+                </div>
+                <div id = "employees_">
+                    Employees:
+                </div>
+                <form name="employeeView" id="employeeslist_" action="/manager" method="POST" style="color: 1496FF; position:relative; top: 425px; left: 250px;">       
+            <select id="employee" name="employee" style="width: 500px;">
+                <option value="" selected="selected" required="required">Select</option>
+            </select>
+            
+            <button type="submit" style="left: 100px; top:-20px;">View Profile</button>         
+            <button type="submit" formaction="/mgmtAddDoc">Add Document to Employee</button>
+            <button type="submit" formaction="/mgmtDeleteDoc">Delete Employee Document</button>
+            </form>
+            <div id = "frame_12">
+                <a id="deleteEmployeesButton" _par="" href="/deleteUserEntry">
+                    <div id="text">
+                        Delete Employees
+                    </div>
+                </a>
+            </div>
+         </div>
+         <a id="logoutbutton_cls_a" _par="" href="/auth/signout">
+            <div id="log_out" >
+                 Log out
+            </div>
+        </a>
+        </body>
+</html>
